@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
+import Reveal from './Reveal';
 
 const categories = [
   {
     title: 'Cocinas',
     description: 'Diseños funcionales y modernos hechos a la medida.',
     image: '/cocina-gris.png',
-    href: '/page.tsx',
+    href: '/galeria',
     className: 'xl:col-span-2 xl:row-span-2',
   },
   {
@@ -43,54 +44,58 @@ export default function Galeria() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
 
             {/* TEXTO DEL ENCABEZADO */}
-            <div className="max-w-3xl">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#B9945E]">
-                Nuestro trabajo
-              </p>
+            <Reveal>
+              <div className="max-w-3xl">
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#B9945E]">
+                  Nuestro trabajo
+                </p>
 
-              <h2 className="text-4xl font-semibold leading-tight tracking-tight text-black sm:text-5xl md:text-6xl">
-                Nuestros proyectos
-              </h2>
+                <h2 className="text-4xl font-semibold leading-tight tracking-tight text-black sm:text-5xl md:text-6xl">
+                  Nuestros proyectos
+                </h2>
 
-              <div className="mt-6 h-[2px] w-20 bg-[#D9B37A]" />
+                <div className="mt-6 h-[2px] w-20 bg-[#D9B37A]" />
 
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
-                Cada proyecto es diseñado y fabricado a medida para combinar
-                funcionalidad, calidad y un estilo que se adapte a cada espacio.
-              </p>
-            </div>
+                <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
+                  Cada proyecto es diseñado y fabricado a medida para combinar
+                  funcionalidad, calidad y un estilo que se adapte a cada espacio.
+                </p>
+              </div>
+            </Reveal>
 
             {/* LINK A GALERÍA COMPLETA */}
-            <Link
-              href="/galeria"
-              className="
-                group
-                inline-flex
-                w-fit
-                items-center
-                gap-2
-                text-lg
-                font-semibold
-                text-black
-                transition-colors
-                duration-300
-                hover:text-[#B9945E]
-                lg:mb-1
-              "
-            >
-              Ver todos los proyectos
-
-              <ArrowUpRight
-                size={18}
-                strokeWidth={1.8}
+            <Reveal delay={150}>
+              <Link
+                href="/galeria"
                 className="
-                  transition-transform
+                  group
+                  inline-flex
+                  w-fit
+                  items-center
+                  gap-2
+                  text-lg
+                  font-semibold
+                  text-black
+                  transition-colors
                   duration-300
-                  group-hover:translate-x-1
-                  group-hover:-translate-y-1
+                  hover:text-[#B9945E]
+                  lg:mb-1
                 "
-              />
-            </Link>
+              >
+                Ver todos los proyectos
+
+                <ArrowUpRight
+                  size={18}
+                  strokeWidth={1.8}
+                  className="
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                    group-hover:-translate-y-1
+                  "
+                />
+              </Link>
+            </Reveal>
 
           </div>
         </div>
@@ -108,97 +113,105 @@ export default function Galeria() {
             xl:auto-rows-auto
           "
         >
-          {categories.map((item) => (
-            <Link
+          {categories.map((item, index) => (
+            <Reveal
               key={item.title}
-              href={item.href}
-              className={`
-                group relative block
-                overflow-hidden rounded-2xl
-                ${item.className}
-              `}
+              delay={index * 120}
+              className={item.className}
             >
-              {/* IMAGEN */}
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                sizes="
-                  (max-width: 639px) 100vw,
-                  (max-width: 1279px) 50vw,
-                  25vw
-                "
+              <Link
+                href={item.href}
                 className="
-                  object-cover
-                  transition-transform
-                  duration-700
-                  ease-out
-                  group-hover:scale-105
+                  group relative block
+                  h-full
+                  w-full
+                  overflow-hidden
+                  rounded-2xl
                 "
-              />
+              >
 
-              {/* OSCURECIMIENTO */}
-              <div
-                className="
-                  absolute inset-0
-                  bg-black/10
-                  transition-colors
-                  duration-500
-                  group-hover:bg-black/20
-                "
-              />
+                {/* IMAGEN */}
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="
+                    (max-width: 639px) 100vw,
+                    (max-width: 1279px) 50vw,
+                    25vw
+                  "
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-700
+                    ease-out
+                    group-hover:scale-105
+                  "
+                />
 
-              {/* DEGRADADO */}
-              <div
-                className="
-                  absolute inset-x-0 bottom-0 h-2/3
-                  bg-gradient-to-t
-                  from-black/85
-                  via-black/40
-                  to-transparent
-                "
-              />
+                {/* OSCURECIMIENTO */}
+                <div
+                  className="
+                    absolute inset-0
+                    bg-black/10
+                    transition-colors
+                    duration-500
+                    group-hover:bg-black/20
+                  "
+                />
 
-              {/* CONTENIDO */}
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 md:p-7">
-                <div className="flex items-end justify-between gap-4">
+                {/* DEGRADADO */}
+                <div
+                  className="
+                    absolute inset-x-0 bottom-0 h-2/3
+                    bg-gradient-to-t
+                    from-black/85
+                    via-black/40
+                    to-transparent
+                  "
+                />
 
-                  <div className="max-w-lg">
-                    <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                      {item.title}
-                    </h3>
+                {/* CONTENIDO */}
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 md:p-7">
+                  <div className="flex items-end justify-between gap-4">
 
-                    <p className="mt-2 text-sm leading-relaxed text-white/80 sm:text-base">
-                      {item.description}
-                    </p>
+                    <div className="max-w-lg">
+                      <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-sm leading-relaxed text-white/80 sm:text-base">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    {/* FLECHA */}
+                    <div
+                      className="
+                        flex h-11 w-11 shrink-0
+                        items-center justify-center
+                        rounded-full
+                        border border-white/40
+                        bg-white/10
+                        backdrop-blur-sm
+                        transition-all
+                        duration-300
+                        group-hover:translate-x-1
+                        group-hover:border-[#D9B37A]
+                        group-hover:bg-[#D9B37A]
+                      "
+                    >
+                      <ArrowUpRight
+                        size={20}
+                        strokeWidth={1.8}
+                        className="text-white"
+                      />
+                    </div>
+
                   </div>
-
-                  {/* FLECHA */}
-                  <div
-                    className="
-                      flex h-11 w-11 shrink-0
-                      items-center justify-center
-                      rounded-full
-                      border border-white/40
-                      bg-white/10
-                      backdrop-blur-sm
-                      transition-all
-                      duration-300
-                      group-hover:translate-x-1
-                      group-hover:border-[#D9B37A]
-                      group-hover:bg-[#D9B37A]
-                    "
-                  >
-                    <ArrowUpRight
-                      size={20}
-                      strokeWidth={1.8}
-                      className="text-white"
-                    />
-                  </div>
-
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
 
