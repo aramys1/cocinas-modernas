@@ -1,24 +1,43 @@
-import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
-import "./globals.css";
-import WhatsAppButton from "../components/WhatsAppButton";
+import type { Metadata } from 'next';
+import { Fraunces, Manrope } from 'next/font/google';
 
-import Navbar from "../components/Navbar";
+import './globals.css';
+
+import Navbar from '../components/Navbar';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-display",
+  subsets: ['latin'],
+  variable: '--font-display',
 });
 
 const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  subsets: ['latin'],
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
-  title: "Cocinas Modernas | Ebanisteria y Diseño en Panama",
+  title: {
+    default: 'Cocinas Modernas | Muebles a Medida en Panamá',
+    template: '%s | Cocinas Modernas',
+  },
+
   description:
-    "Diseño y fabricación de muebles a medida en Panama. Expertos en cocinas, clósets y remodelaciones con materiales de alta gama.",
+    'Diseño y fabricación de muebles a medida en Panamá. Cocinas, clósets, centros de entretenimiento y remodelaciones adaptadas a cada espacio.',
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    type: 'website',
+    locale: 'es_PA',
+    siteName: 'Cocinas Modernas',
+    title: 'Cocinas Modernas | Muebles a Medida en Panamá',
+    description:
+      'Diseño y fabricación de cocinas, clósets, centros de entretenimiento y muebles a medida en Panamá.',
+  },
 };
 
 export default function RootLayout({
@@ -31,9 +50,11 @@ export default function RootLayout({
       lang="es"
       className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col">
         <Navbar />
+
         {children}
+
         <WhatsAppButton />
       </body>
     </html>

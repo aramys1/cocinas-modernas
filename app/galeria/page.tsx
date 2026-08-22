@@ -408,6 +408,7 @@ export default function GaleriaPage() {
 
 
                       {/* TEXTO */}
+                      {/* CATEGORÍA */}
                       <div
                         className="
                           absolute
@@ -417,31 +418,17 @@ export default function GaleriaPage() {
                           md:p-6
                         "
                       >
-
                         <p
                           className="
-                            mb-2
-                            text-xs
+                            text-sm
                             font-semibold
                             uppercase
-                            tracking-[0.18em]
+                            tracking-[0.2em]
                             text-[#E0B978]
                           "
                         >
                           {project.category}
                         </p>
-
-
-                        <h2
-                          className="
-                            text-2xl
-                            font-semibold
-                            text-white
-                          "
-                        >
-                          {project.title}
-                        </h2>
-
                       </div>
 
                     </button>

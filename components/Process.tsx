@@ -50,15 +50,27 @@ const steps = [
   },
 ];
 
-export default function Process() {
-  const whatsappMessage = encodeURIComponent(
-    'Hola, quisiera cotizar un trabajo de ebanistería.'
-  );
+type ProcessProps = {
+  image?: string;
+  imageAlt?: string;
+  whatsappMessage?: string;
+  ctaLabel?: string;
+};
 
-  const whatsappUrl = `https://wa.me/50768414434?text=${whatsappMessage}`;
+export default function Process({
+  image = '/process.png',
+  imageAlt = 'Proceso de fabricación de muebles a medida en Panamá',
+  whatsappMessage = 'Hola, quisiera cotizar un trabajo de ebanistería.',
+  ctaLabel = 'Cotizar mi proyecto',
+}: ProcessProps) {
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+
+  const whatsappUrl =
+    `https://wa.me/50768414434?text=${encodedMessage}`;
 
   return (
     <section className="bg-[#F5F5F5] py-12 md:py-12">
+
       <div className="mx-auto max-w-[1584px]">
 
         {/* GRID PRINCIPAL */}
@@ -69,6 +81,7 @@ export default function Process() {
 
             {/* ENCABEZADO */}
             <Reveal delay={100}>
+
               <div className="mb-10">
 
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#C9A66B]">
@@ -82,6 +95,7 @@ export default function Process() {
                 <div className="mt-6 h-[2px] w-20 bg-[#D9B37A]" />
 
               </div>
+
             </Reveal>
 
 
@@ -89,10 +103,12 @@ export default function Process() {
             <div className="flex flex-col gap-5">
 
               {steps.map((step, index) => (
+
                 <Reveal
                   key={step.number}
                   delay={200 + index * 140}
                 >
+
                   <div className="flex items-center">
 
                     {/* NÚMERO */}
@@ -121,11 +137,13 @@ export default function Process() {
 
                     {/* ICONO */}
                     <div className="flex w-[32px] justify-center">
+
                       <step.icon
                         size={32}
                         strokeWidth={1.7}
                         className="text-black"
                       />
+
                     </div>
 
 
@@ -147,7 +165,9 @@ export default function Process() {
                     </div>
 
                   </div>
+
                 </Reveal>
+
               ))}
 
             </div>
@@ -155,6 +175,7 @@ export default function Process() {
 
             {/* BOTÓN */}
             <Reveal delay={950}>
+
               <div className="mt-12">
 
                 <Link
@@ -182,7 +203,7 @@ export default function Process() {
                     md:text-lg
                   "
                 >
-                  Cotizar mi proyecto
+                  {ctaLabel}
 
                   <ArrowUpRight
                     size={20}
@@ -201,29 +222,36 @@ export default function Process() {
                 </p>
 
               </div>
+
             </Reveal>
 
           </div>
 
 
           {/* IMAGEN DERECHA */}
-          <Reveal delay={250} className="h-full">
+          <Reveal
+            delay={250}
+            className="h-full"
+          >
+
             <div className="relative mt-14 h-[400px] lg:mt-0 lg:h-full">
 
               <Image
-                src="/process.png"
-                alt="Proceso de fabricación de muebles a medida"
+                src={image}
+                alt={imageAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
 
             </div>
+
           </Reveal>
 
         </div>
 
       </div>
+
     </section>
   );
 }
