@@ -1,8 +1,15 @@
 import Link from 'next/link';
 
 export default function CTASection() {
+  const phoneNumber = '50768414434';
+
+  const message = encodeURIComponent(
+    'Hola, quisiera cotizar un trabajo de ebanistería.'
+  );
+
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
   return (
-    <section className="bg-[#D9B37A] py-20">
+    <section id="cotizar" className="bg-[#D9B37A] py-20">
       <div className="max-w-[1584px] mx-auto px-6 md:px-16 lg:px-24 text-center">
 
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -15,7 +22,8 @@ export default function CTASection() {
         </p>
 
         <Link
-          href="/contacto"
+        
+          href={whatsappUrl}
           className="inline-flex items-center justify-center bg-white text-black font-semibold px-10 py-5 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg"
         >
           Cotizar mi proyecto

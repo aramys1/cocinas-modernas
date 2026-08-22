@@ -12,50 +12,104 @@ export default function Home() {
     <main>
 
       {/* HERO */}
-      <section className="relative min-h-screen">
+      <section className="relative min-h-screen overflow-hidden">
 
-        {/* Fondo */}
-        <div 
-          className="absolute inset-0 z-0"
+        {/* IMAGEN DE FONDO */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/cocina-gris-hero.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
           }}
-        >
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
+        />
 
-        {/* Contenido */}
-        <div className="relative z-10 max-w-[1584px] mx-auto px-6 md:px-12">
-          <section className="flex flex-col justify-center min-h-screen max-w-3xl">
-            
-            <h1 className="text-4xl md:text-4xl font-bold text-white leading-tight uppercase tracking-wide max-w-xl">
-              Diseño y Fabricación de Muebles a Medida
-            </h1>
+        {/* DEGRADADO DE IZQUIERDA A DERECHA */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.88) 25%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.12) 75%, rgba(0,0,0,0) 100%)',
+          }}
+        />
 
-            <div className="mt-12">
-              <Link 
-                href="https://wa.me/50768414434" 
-                className="bg-[#E0E0E0] text-black px-8 py-4 rounded-xl text-lg font-bold hover:bg-white transition-all  inline-block"
+        {/* CONTENIDO DEL HERO */}
+        <div className="relative z-10 min-h-screen flex items-center">
+          <div className="w-full max-w-[1584px] mx-auto px-6 md:px-12">
+
+            <div className="max-w-3xl">
+
+              {/* TÍTULO */}
+              <h1
+                className="
+                  text-white
+                  font-serif
+                  font-semibold
+                  leading-[1.05]
+                  tracking-tight
+                  text-5xl
+                  sm:text-5xl
+                  md:text-5xl
+                  lg:text-6xl
+                  max-w-3xl
+                "
               >
-                Cotizar mi proyecto
-              </Link>
-            </div>
+                Diseño y Fabricación
+                <span className="block">
+                  de Muebles a Medida
+                </span>
+              </h1>
 
-          </section>
+              {/* LÍNEA DECORATIVA */}
+              <div className="mt-8 mb-8 w-20 h-[3px] bg-white" />
+
+              {/* TEXTO */}
+              <p className="text-white/85 text-lg md:text-2xl leading-relaxed max-w-xl">
+                Diseñamos y fabricamos muebles a medida para crear espacios
+                únicos, funcionales y adaptados a tu estilo.
+              </p>
+
+              {/* BOTÓN */}
+              <div className="mt-10">
+                <Link
+                  href="https://wa.me/50768414434"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    bg-white
+                    text-black
+                    px-8
+                    py-4
+                    rounded-xl
+                    text-base
+                    md:text-lg
+                    font-semibold
+                    transition-all
+                    duration-300
+                    hover:bg-neutral-200
+                    hover:scale-[1.02]
+                  "
+                >
+                  Cotizar mi proyecto
+                </Link>
+              </div>
+
+            </div>
+          </div>
         </div>
 
       </section>
 
-      {/* BENEFITS */}
+      {/* SECCIONES */}
+      <Galeria />
       <Benefits />
       <Process />
-      <Galeria />
       <Materials />
       <PreguntasFrecuentes />
       <Cotizar />
       <Footer />
+
     </main>
   );
 }

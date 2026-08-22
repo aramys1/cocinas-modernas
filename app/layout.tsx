@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
+import WhatsAppButton from "../components/WhatsAppButton";
 
+import Navbar from "../components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
   subsets: ["latin"],
+  variable: "--font-display",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const manrope = Manrope({
   subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
   title: "Cocinas Modernas | Ebanisteria y Diseño en Panama",
-  description: "Diseño y fabricación de muebles a medida en Panama. Expertos en cocinas, clósets y remodelaciones con materiales de alta gama.",
+  description:
+    "Diseño y fabricación de muebles a medida en Panama. Expertos en cocinas, clósets y remodelaciones con materiales de alta gama.",
 };
-
-import Navbar from '../components/Navbar'; // Importas la pieza
-import './globals.css';
-
 
 export default function RootLayout({
   children,
@@ -29,11 +28,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="es"
+      className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />{children}</body>
+        <Navbar />
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

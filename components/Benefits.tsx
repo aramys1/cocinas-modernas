@@ -15,10 +15,11 @@ const benefits = [
 
 export default function Benefits() {
     return (
-        <section className="bg-white py-20 px-8 md:px-24 text-black">
-            <h2 className="text-center text-2xl md:text-2xl font-bold tracking-widest mb-26">
+        <section className="bg-white py-20 px-8 md:px-24 text-black mb-20">
+            <h2 className="text-center text-2xl md:text-4xl font-bold tracking-widest mb-10">
                 PORQUÉ ELEGIR NUESTROS MUEBLES
             </h2>
+            <div className="mt-10 mx-auto mb-24 h-[2px] w-30 bg-[#D9B37A]" />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {benefits.map((item) => (
             <div key={item.title} className="flex flex-col items-center text-center group">
@@ -32,7 +33,7 @@ export default function Benefits() {
                 </span>
             </div>
             ))}
-        </div>
+            </div>
         </section>
     );
 }

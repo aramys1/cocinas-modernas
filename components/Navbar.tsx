@@ -5,33 +5,60 @@ import Link from 'next/link';
 
 import {
   Home,
+  Images,
   LayoutGrid,
   DoorOpen,
   Monitor,
-  Wrench,
   Mail,
   ChevronRight,
   X,
 } from 'lucide-react';
 
-import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaWhatsapp,
+} from 'react-icons/fa';
 
-// NAV ITEM
+
+// ================================
+// NAV ITEM MOBILE
+// ================================
+
 const NavItem = ({
   icon: Icon,
   label,
+  href,
+  onClick,
 }: {
-  icon: any;
+  icon: React.ElementType;
   label: string;
+  href: string;
+  onClick?: () => void;
 }) => (
   <Link
-    href={`/${label.toLowerCase().replace(/\s+/g, '')}`}
-    className="flex items-center gap-4 text-white/90 hover:text-orange-400 transition-all duration-300 group py-2"
+    href={href}
+    onClick={onClick}
+    className="
+      group
+      flex
+      items-center
+      gap-4
+      py-2
+      text-white/90
+      transition-all
+      duration-300
+      hover:text-orange-400
+    "
   >
     <Icon
       size={22}
       strokeWidth={1.5}
-      className="group-hover:scale-110 transition-transform duration-300"
+      className="
+        transition-transform
+        duration-300
+        group-hover:scale-110
+      "
     />
 
     <span className="text-lg font-light tracking-wide">
@@ -40,27 +67,48 @@ const NavItem = ({
   </Link>
 );
 
+
+// ================================
 // SOCIAL ITEM
+// ================================
+
 const SocialItem = ({
   icon: Icon,
   label,
+  href,
   arrow,
 }: {
-  icon: any;
+  icon: React.ElementType;
   label: string;
+  href: string;
   arrow?: boolean;
 }) => (
   <a
-    href="#"
-    className="flex items-center justify-between group"
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group flex items-center justify-between"
   >
     <div className="flex items-center gap-4">
       <Icon
         size={20}
-        className="text-white/70 group-hover:text-orange-400 transition-colors duration-300"
+        className="
+          text-white/70
+          transition-colors
+          duration-300
+          group-hover:text-orange-400
+        "
       />
 
-      <span className="font-light text-white/80 group-hover:text-white transition-colors duration-300">
+      <span
+        className="
+          font-light
+          text-white/80
+          transition-colors
+          duration-300
+          group-hover:text-white
+        "
+      >
         {label}
       </span>
     </div>
@@ -68,26 +116,61 @@ const SocialItem = ({
     {arrow && (
       <ChevronRight
         size={18}
-        className="text-orange-400 opacity-0 translate-x-[-5px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+        className="
+          -translate-x-[5px]
+          text-orange-400
+          opacity-0
+          transition-all
+          duration-300
+          group-hover:translate-x-0
+          group-hover:opacity-100
+        "
       />
     )}
   </a>
 );
 
-// NAV LINKS
+
+// ================================
+// LINKS DESKTOP
+// ================================
+
 const navLinks = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Cocinas', href: '/cocinas' },
-  { name: 'Clósets', href: '/closets' },
-  { name: 'Centros de Tv', href: '/tv' },
-  { name: 'Contacto', href: '/contacto' },
+  {
+    name: 'Inicio',
+    href: '/',
+  },
+  {
+    name: 'Galería',
+    href: '/galeria',
+  },
+  {
+    name: 'Cocinas',
+    href: '/galeria?categoria=Cocinas',
+  },
+  {
+    name: 'Clósets',
+    href: '/galeria?categoria=Closets',
+  },
+  {
+    name: 'Centros de TV',
+    href: '/galeria?categoria=Centros%20de%20TV',
+  },
+  {
+    name: 'Cotizar',
+    href: '/#cotizar',
+  },
 ];
+
+
+// ================================
+// NAVBAR
+// ================================
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  // NAVBAR SCROLL STATE
   const [scrolled, setScrolled] = useState(false);
+
 
   // DETECTAR SCROLL
   useEffect(() => {
@@ -102,7 +185,8 @@ export default function Navbar() {
     };
   }, []);
 
-  // BLOQUEAR SCROLL CUANDO ABRE MENU
+
+  // BLOQUEAR SCROLL CUANDO ABRE MENÚ
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -115,49 +199,117 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+
   return (
     <>
-      {/* NAVBAR */}
+      {/* ================================
+          NAVBAR PRINCIPAL
+      ================================= */}
+
       <nav
-        className={`absolute w-full z-50 text-white transition-all duration-500 ${
-          scrolled
-            ? 'bg-black/60 backdrop-blur-md shadow-lg py-1'
-            : 'bg-black py-3'
-        }`}
+        className={`
+          absolute
+          z-50
+          w-full
+          text-white
+          transition-all
+          duration-500
+          ${
+            scrolled
+              ? 'bg-black/60 py-1 shadow-lg backdrop-blur-md'
+              : 'bg-black py-3'
+          }
+        `}
       >
-        <div className="max-w-[1584px] mx-auto px-6 md:px-12">
-          <div className="flex justify-between items-center h-8 md:h-8">
-            
+        <div className="mx-auto max-w-[1584px] px-6 md:px-12">
+
+          <div className="flex h-8 items-center justify-between md:h-8">
+
             {/* LOGO */}
             <div className="flex-shrink-0">
               <Link
                 href="/"
-                className="text-sm md:text-base font-bold tracking-[0.15em] uppercase"
+                className="
+                  font-display
+                  text-sm
+                  font-bold
+                  uppercase
+                  tracking-[0.15em]
+                  md:text-base
+                "
               >
                 Cocinas Modernas
               </Link>
             </div>
 
-            {/* DESKTOP MENU */}
+
+            {/* ================================
+                MENÚ DESKTOP
+            ================================= */}
+
             <div className="hidden lg:block">
-              <div className="flex items-center space-x-10 text-xs font-medium uppercase tracking-[0.2em]">
+
+              <div
+                className="
+                  flex
+                  items-center
+                  space-x-8
+                  text-xs
+                  font-medium
+                  uppercase
+                  tracking-[0.18em]
+                  xl:space-x-10
+                "
+              >
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="relative hover:text-orange-400 transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-orange-400 after:transition-all after:duration-300 hover:after:w-full"
+                    className="
+                      relative
+                      whitespace-nowrap
+
+                      transition-colors
+                      duration-300
+
+                      hover:text-orange-400
+
+                      after:absolute
+                      after:left-0
+                      after:-bottom-1
+                      after:h-[1px]
+                      after:w-0
+                      after:bg-orange-400
+                      after:transition-all
+                      after:duration-300
+
+                      hover:after:w-full
+                    "
                   >
                     {link.name}
                   </Link>
                 ))}
               </div>
+
             </div>
 
-            {/* MOBILE BUTTON */}
-            <div className="lg:hidden flex items-center">
+
+            {/* ================================
+                BOTÓN MOBILE
+            ================================= */}
+
+            <div className="flex items-center lg:hidden">
+
               <button
                 onClick={() => setIsOpen(true)}
-                className="p-2 text-white hover:text-orange-400 transition-colors duration-300"
+                aria-label="Abrir menú"
+                className="
+                  p-2
+                  text-white
+                  transition-colors
+                  duration-300
+                  hover:text-orange-400
+                "
               >
                 <svg
                   className="h-7 w-7"
@@ -173,73 +325,182 @@ export default function Navbar() {
                   />
                 </svg>
               </button>
+
             </div>
+
           </div>
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
+
+      {/* ================================
+          MENÚ MOBILE
+      ================================= */}
+
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex justify-end">
-          
+
           {/* OVERLAY */}
           <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className="
+              absolute
+              inset-0
+              bg-black/50
+              backdrop-blur-sm
+            "
             onClick={() => setIsOpen(false)}
           />
 
-          {/* SIDEBAR */}
-          <div className="relative w-[85%] max-w-[380px] h-full bg-[#121212]/95 backdrop-blur-2xl text-white flex flex-col p-8 shadow-2xl border-l border-white/5 transition-transform duration-300">
 
-            {/* CLOSE */}
-            <div className="flex justify-end mb-12">
+          {/* SIDEBAR */}
+          <div
+            className="
+              relative
+              flex
+              h-full
+              w-[85%]
+              max-w-[380px]
+              flex-col
+
+              border-l
+              border-white/5
+
+              bg-[#121212]/95
+
+              p-8
+              text-white
+
+              shadow-2xl
+              backdrop-blur-2xl
+            "
+          >
+
+            {/* CERRAR */}
+            <div className="mb-12 flex justify-end">
+
               <button
                 onClick={() => setIsOpen(false)}
-                className="hover:rotate-90 transition-transform duration-300"
+                aria-label="Cerrar menú"
+                className="
+                  transition-transform
+                  duration-300
+                  hover:rotate-90
+                "
               >
-                <X className="w-9 h-9 stroke-[1.2]" />
+                <X className="h-9 w-9 stroke-[1.2]" />
               </button>
+
             </div>
 
-            {/* NAVIGATION */}
-            <nav className="flex flex-col gap-5 flex-1 overflow-y-auto">
 
-              <NavItem icon={Home} label="Inicio" />
-              <NavItem icon={LayoutGrid} label="Cocinas" />
-              <NavItem icon={DoorOpen} label="Closets" />
-              <NavItem icon={Monitor} label="Centros de TV" />
-              <NavItem icon={Wrench} label="Remodelaciones" />
-              <NavItem icon={Mail} label="Contacto" />
+            {/* ================================
+                NAVEGACIÓN MOBILE
+            ================================= */}
 
-              <div className="h-[1px] bg-white/10 my-6" />
+            <nav className="flex flex-1 flex-col gap-5 overflow-y-auto">
 
-              <p className="text-[10px] uppercase tracking-[0.3em] text-orange-400 font-semibold mb-2">
+              <NavItem
+                icon={Home}
+                label="Inicio"
+                href="/"
+                onClick={() => setIsOpen(false)}
+              />
+
+              <NavItem
+                icon={Images}
+                label="Galería"
+                href="/galeria"
+                onClick={() => setIsOpen(false)}
+              />
+
+              <NavItem
+                icon={LayoutGrid}
+                label="Cocinas"
+                href="/galeria?categoria=Cocinas"
+                onClick={() => setIsOpen(false)}
+              />
+
+              <NavItem
+                icon={DoorOpen}
+                label="Clósets"
+                href="/galeria?categoria=Closets"
+                onClick={() => setIsOpen(false)}
+              />
+
+              <NavItem
+                icon={Monitor}
+                label="Centros de TV"
+                href="/galeria?categoria=Centros%20de%20TV"
+                onClick={() => setIsOpen(false)}
+              />
+
+              <NavItem
+              icon={Mail}
+              label="Cotizar"
+              href="/#cotizar"
+              onClick={() => setIsOpen(false)}
+              />
+
+
+              {/* SEPARADOR */}
+              <div className="my-6 h-[1px] bg-white/10" />
+
+
+              {/* CONTACTO */}
+              <p
+                className="
+                  mb-2
+                  text-[10px]
+                  font-semibold
+                  uppercase
+                  tracking-[0.3em]
+                  text-orange-400
+                "
+              >
                 Contáctanos
               </p>
 
+
               <div className="flex flex-col gap-6">
+
                 <SocialItem
                   icon={FaInstagram}
                   label="Instagram"
+                  href="#"
                 />
 
                 <SocialItem
                   icon={FaFacebookF}
                   label="Facebook"
+                  href="#"
                 />
 
                 <SocialItem
                   icon={FaWhatsapp}
                   label="WhatsApp"
+                  href="https://wa.me/50768414434?text=Hola%2C%20quisiera%20cotizar%20un%20trabajo%20de%20ebanister%C3%ADa."
                   arrow
                 />
+
               </div>
+
             </nav>
 
-            {/* FOOTER */}
-            <div className="mt-auto pt-10 text-[10px] text-gray-500 uppercase tracking-widest">
+
+            {/* FOOTER MOBILE */}
+            <div
+              className="
+                mt-auto
+                pt-10
+                text-[10px]
+                uppercase
+                tracking-widest
+                text-gray-500
+              "
+            >
               Arraiján, Panamá Oeste
             </div>
+
           </div>
         </div>
       )}
