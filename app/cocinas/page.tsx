@@ -1,40 +1,57 @@
 import type { Metadata } from 'next';
 
+import {
+  Droplets,
+  Gem,
+  Square,
+  Lightbulb,
+  Wrench,
+  Boxes,
+} from 'lucide-react';
+
 import ServiceHero from '@/components/ServiceHero';
+
 import ServiceProjects, {
   type ServiceProject,
 } from '@/components/ServiceProjects';
 
 import ServiceBenefits from '@/components/ServiceBenefits';
+
 import ServiceFAQ, {
   type FAQItem,
 } from '@/components/ServiceFAQ';
 
-import Materials from '@/components/Materials';
+import Materials, {
+  type MaterialItem,
+} from '@/components/Materials';
+
 import Process from '@/components/Process';
 import Cotizar from '@/components/Cotizar';
 import Footer from '@/components/Footer';
-
 import Reveal from '@/components/Reveal';
 
 
 export const metadata: Metadata = {
-  title: 'Cocinas a Medida en Panamá',
+  title: 'Cocinas y Muebles de Cocina a Medida en Panamá',
 
   description:
-    'Diseño y fabricación de cocinas a medida en Panamá. Cocinas modernas y funcionales adaptadas a cada espacio, con materiales y acabados de calidad.',
+    'Diseño y fabricación de cocinas y muebles de cocina a medida en Panamá. Gabinetes, gavetas, almacenamiento y acabados adaptados a cada espacio.',
 
   openGraph: {
     title:
-      'Cocinas a Medida en Panamá | Cocinas Modernas',
+      'Cocinas y Muebles de Cocina a Medida en Panamá | Cocinas Modernas',
 
     description:
-      'Diseñamos y fabricamos cocinas modernas a medida en Panamá, adaptadas al espacio, estilo y necesidades de cada cliente.',
+      'Diseñamos y fabricamos muebles de cocina a medida en Panamá, con soluciones de almacenamiento y acabados personalizados para cada espacio.',
 
     type: 'website',
   },
 };
 
+
+/* =================================
+   PROYECTOS
+================================= */
 
 const kitchenProjects: ServiceProject[] = [
   {
@@ -59,6 +76,10 @@ const kitchenProjects: ServiceProject[] = [
 ];
 
 
+/* =================================
+   BENEFICIOS
+================================= */
+
 const benefits = [
   {
     title: 'Diseño adaptado a tu espacio',
@@ -82,6 +103,101 @@ const benefits = [
   },
 ];
 
+
+/* =================================
+   MATERIALES PARA COCINAS
+================================= */
+
+const kitchenMaterials: MaterialItem[] = [
+  {
+    title: 'Aglomerado Hidrófugo',
+
+    description:
+      'Tableros resistentes a la humedad, ideales para el uso diario en cocinas.',
+
+    image: '/aglomerado-hidrofugo.png',
+
+    alt:
+      'Aglomerado hidrófugo para muebles de cocina a medida en Panamá',
+
+    icon: Droplets,
+  },
+
+  {
+    title: 'Sobres de cuarzo',
+
+    description:
+      'Superficies modernas, resistentes y disponibles en diferentes acabados.',
+
+    image: '/cuarzo.png',
+
+    alt:
+      'Sobre de cuarzo para cocina moderna a medida',
+
+    icon: Gem,
+  },
+
+  {
+    title: 'Sobres de granito',
+
+    description:
+      'Piedra natural resistente que aporta carácter y durabilidad a la cocina.',
+
+    image: '/granito.png',
+
+    alt:
+      'Sobre de granito para cocina a medida en Panamá',
+
+    icon: Square,
+  },
+
+  {
+    title: 'Herrajes de calidad',
+
+    description:
+      'Bisagras, correderas y accesorios pensados para un uso cómodo y duradero.',
+
+    image: '/herraje.png',
+
+    alt:
+      'Herrajes para muebles de cocina fabricados a medida',
+
+    icon: Wrench,
+  },
+
+  {
+    title: 'Iluminación LED',
+
+    description:
+      'Iluminación integrada para mejorar la funcionalidad y resaltar el diseño.',
+
+    image: '/luces-led.png',
+
+    alt:
+      'Iluminación LED integrada en cocina moderna',
+
+    icon: Lightbulb,
+  },
+
+  {
+    title: 'Distribución funcional',
+
+    description:
+      'Diseñamos módulos y almacenamiento para aprovechar mejor cada espacio disponible.',
+
+    image: '/espacios-funcionales.png',
+
+    alt:
+      'Distribución funcional de cocina diseñada a medida',
+
+    icon: Boxes,
+  },
+];
+
+
+/* =================================
+   PREGUNTAS FRECUENTES
+================================= */
 
 const faqs: FAQItem[] = [
   {
@@ -128,9 +244,10 @@ const faqs: FAQItem[] = [
 
 export default function CocinasPage() {
 
-  /*
-   * DATOS ESTRUCTURADOS PARA BUSCADORES
-   */
+  /* =================================
+     DATOS ESTRUCTURADOS SEO
+  ================================= */
+
   const structuredData = {
     '@context': 'https://schema.org',
 
@@ -155,8 +272,12 @@ export default function CocinasPage() {
 
         provider: {
           '@type': 'Organization',
-          name: 'Cocinas Modernas',
-          telephone: '+507 6841-4434',
+
+          name:
+            'Cocinas Modernas',
+
+          telephone:
+            '+507 6841-4434',
         },
       },
 
@@ -167,11 +288,14 @@ export default function CocinasPage() {
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
 
-          name: faq.question,
+          name:
+            faq.question,
 
           acceptedAnswer: {
             '@type': 'Answer',
-            text: faq.answer,
+
+            text:
+              faq.answer,
           },
         })),
       },
@@ -183,7 +307,10 @@ export default function CocinasPage() {
   return (
     <main className="bg-white">
 
-      {/* DATOS PARA GOOGLE */}
+      {/* =================================
+          DATOS PARA GOOGLE
+      ================================= */}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -194,7 +321,10 @@ export default function CocinasPage() {
       />
 
 
-      {/* HERO */}
+      {/* =================================
+          HERO
+      ================================= */}
+
       <ServiceHero
         eyebrow="Diseño · Fabricación · Instalación"
 
@@ -216,18 +346,17 @@ export default function CocinasPage() {
           Hola, quisiera cotizar una cocina a medida.
         "
 
+        ctaLabel="Cotizar mi cocina"
+
         projectsHref="#proyectos"
       />
 
 
-      {/* INTRODUCCIÓN */}
-      <section
-        className="
-          bg-white
-          py-20
-          md:py-24
-        "
-      >
+      {/* =================================
+          INTRODUCCIÓN
+      ================================= */}
+
+      <section className="bg-white py-20 md:py-24">
 
         <div
           className="
@@ -244,6 +373,7 @@ export default function CocinasPage() {
           "
         >
 
+          {/* IZQUIERDA */}
           <Reveal>
 
             <div>
@@ -294,6 +424,7 @@ export default function CocinasPage() {
           </Reveal>
 
 
+          {/* DERECHA */}
           <Reveal
             delay={180}
             direction="right"
@@ -314,19 +445,18 @@ export default function CocinasPage() {
             >
 
               <p>
-                Una cocina a medida permite aprovechar
-                mejor el espacio disponible y adaptar
-                cada módulo a las necesidades reales
-                del hogar.
+                Una cocina a medida permite aprovechar mejor el
+                espacio disponible. Diseñamos gabinetes, gavetas
+                y módulos según las medidas y necesidades reales
+                de cada hogar.
               </p>
 
 
               <p>
-                Diseñamos cocinas modernas teniendo en
-                cuenta la distribución, almacenamiento,
-                materiales, iluminación y acabados para
-                crear espacios funcionales y agradables
-                para el uso diario.
+                 La distribución, el almacenamiento, los materiales,
+                la iluminación y los acabados se planifican para
+                crear un espacio funcional y agradable para el
+                uso diario.
               </p>
 
 
@@ -347,7 +477,10 @@ export default function CocinasPage() {
       </section>
 
 
-      {/* PROYECTOS */}
+      {/* =================================
+          PROYECTOS
+      ================================= */}
+
       <ServiceProjects
         eyebrow="Proyectos realizados"
 
@@ -362,10 +495,15 @@ export default function CocinasPage() {
         projects={kitchenProjects}
 
         galleryHref="/galeria?categoria=Cocinas"
+
+        galleryLabel="Ver más proyectos de cocinas"
       />
 
 
-      {/* BENEFICIOS */}
+      {/* =================================
+          BENEFICIOS
+      ================================= */}
+
       <ServiceBenefits
         eyebrow="Diseño a tu medida"
 
@@ -381,20 +519,48 @@ export default function CocinasPage() {
       />
 
 
-      {/* MATERIALES */}
-      <Materials />
+      {/* =================================
+          MATERIALES
+      ================================= */}
+
+      <Materials
+        eyebrow="Materiales para cocinas"
+
+        title="Materiales y acabados para tu cocina"
+
+        description="
+          Seleccionamos materiales resistentes y acabados
+          pensados para crear cocinas funcionales, duraderas
+          y adaptadas a tu estilo.
+        "
+
+        materials={kitchenMaterials}
+      />
 
 
-      {/* PROCESO */}
+      {/* =================================
+          PROCESO
+      ================================= */}
+
       <Process
         image="/process.png"
-        imageAlt="Proceso de diseño y fabricación de cocina a medida en Panamá"
-        whatsappMessage="Hola, quisiera cotizar una cocina a medida."
+
+        imageAlt="
+          Proceso de diseño y fabricación de cocina a medida en Panamá
+        "
+
+        whatsappMessage="
+          Hola, quisiera cotizar una cocina a medida.
+        "
+
         ctaLabel="Cotizar mi cocina"
-        />
+      />
 
 
-      {/* FAQ */}
+      {/* =================================
+          PREGUNTAS FRECUENTES
+      ================================= */}
+
       <ServiceFAQ
         eyebrow="Preguntas frecuentes"
 
@@ -409,11 +575,17 @@ export default function CocinasPage() {
       />
 
 
-      {/* CTA */}
+      {/* =================================
+          COTIZAR
+      ================================= */}
+
       <Cotizar />
 
 
-      {/* FOOTER */}
+      {/* =================================
+          FOOTER
+      ================================= */}
+
       <Footer />
 
     </main>

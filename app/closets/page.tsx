@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 
+import {
+  Layers,
+  Wrench,
+  Lightbulb,
+  Boxes,
+} from 'lucide-react';
+
 import ServiceHero from '@/components/ServiceHero';
 
 import ServiceProjects, {
@@ -11,6 +18,10 @@ import ServiceBenefits from '@/components/ServiceBenefits';
 import ServiceFAQ, {
   type FAQItem,
 } from '@/components/ServiceFAQ';
+
+import Materials, {
+  type MaterialItem,
+} from '@/components/Materials';
 
 import Process from '@/components/Process';
 import Cotizar from '@/components/Cotizar';
@@ -36,50 +47,148 @@ export const metadata: Metadata = {
 };
 
 
+/* =================================
+   PROYECTOS
+================================= */
+
 const closetProjects: ServiceProject[] = [
   {
     id: 1,
+
     title: 'Clóset a medida',
+
     category: 'Closets',
+
     image: '/closet.png',
+
     alt:
       'Clóset blanco fabricado a medida con almacenamiento personalizado en Panamá',
   },
 
   {
     id: 2,
+
     title: 'Clóset moderno',
+
     category: 'Closets',
+
     image: '/galeria-closet.png',
+
     alt:
       'Clóset moderno de madera clara diseñado y fabricado a medida en Panamá',
   },
 ];
 
 
+/* =================================
+   BENEFICIOS
+================================= */
+
 const benefits = [
   {
-    title: 'Aprovechamiento del espacio',
+    title:
+      'Aprovechamiento del espacio',
 
     description:
       'Diseñamos cada clóset según las dimensiones disponibles para aprovechar mejor paredes, esquinas y áreas de almacenamiento.',
   },
 
   {
-    title: 'Distribución personalizada',
+    title:
+      'Distribución personalizada',
 
     description:
       'Podemos organizar espacios para ropa, gavetas, repisas y diferentes tipos de almacenamiento según tus necesidades.',
   },
 
   {
-    title: 'Diseño integrado al ambiente',
+    title:
+      'Diseño integrado al ambiente',
 
     description:
       'Seleccionamos colores, acabados y distribución para que el clóset se integre naturalmente con el dormitorio o espacio donde será instalado.',
   },
 ];
 
+
+/* =================================
+   MATERIALES Y ACABADOS
+================================= */
+
+const closetMaterials: MaterialItem[] = [
+  {
+    title:
+      'Tableros y acabados',
+
+    description:
+      'Materiales seleccionados para crear estructuras resistentes, superficies uniformes y acabados modernos.',
+
+    image:
+      '/aglomerado-hidrofugo.png',
+
+    alt:
+      'Tableros para fabricación de clósets a medida en Panamá',
+
+    icon:
+      Layers,
+  },
+
+  {
+    title:
+      'Herrajes y correderas',
+
+    description:
+      'Bisagras, correderas y accesorios que permiten un funcionamiento cómodo y duradero.',
+
+    image:
+      '/herraje.png',
+
+    alt:
+      'Herrajes y correderas para clósets fabricados a medida',
+
+    icon:
+      Wrench,
+  },
+
+  {
+    title:
+      'Iluminación LED',
+
+    description:
+      'Podemos integrar iluminación para mejorar la visibilidad interior y aportar un acabado moderno.',
+
+    image:
+      '/luces-led.png',
+
+    alt:
+      'Iluminación LED integrada en clóset moderno a medida',
+
+    icon:
+      Lightbulb,
+  },
+
+  {
+    title:
+      'Distribución interior',
+
+    description:
+      'Repisas, gavetas y espacios para colgar diseñados según tus necesidades de almacenamiento.',
+
+    image:
+      '/espacios-funcionales.png',
+
+    alt:
+      'Distribución interior personalizada de clóset a medida',
+
+    icon:
+      Boxes,
+  },
+];
+
+
+/* =================================
+   PREGUNTAS FRECUENTES
+================================= */
 
 const faqs: FAQItem[] = [
   {
@@ -126,6 +235,10 @@ const faqs: FAQItem[] = [
 
 export default function ClosetsPage() {
 
+  /* =================================
+     DATOS ESTRUCTURADOS SEO
+  ================================= */
+
   const structuredData = {
     '@context': 'https://schema.org',
 
@@ -149,8 +262,12 @@ export default function ClosetsPage() {
 
         provider: {
           '@type': 'Organization',
-          name: 'Cocinas Modernas',
-          telephone: '+507 6841-4434',
+
+          name:
+            'Cocinas Modernas',
+
+          telephone:
+            '+507 6841-4434',
         },
       },
 
@@ -160,11 +277,14 @@ export default function ClosetsPage() {
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
 
-          name: faq.question,
+          name:
+            faq.question,
 
           acceptedAnswer: {
             '@type': 'Answer',
-            text: faq.answer,
+
+            text:
+              faq.answer,
           },
         })),
       },
@@ -175,7 +295,10 @@ export default function ClosetsPage() {
   return (
     <main className="bg-white">
 
-      {/* SEO ESTRUCTURADO */}
+      {/* =================================
+          DATOS PARA GOOGLE
+      ================================= */}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -186,7 +309,10 @@ export default function ClosetsPage() {
       />
 
 
-      {/* HERO */}
+      {/* =================================
+          HERO
+      ================================= */}
+
       <ServiceHero
         eyebrow="Diseño · Fabricación · Instalación"
 
@@ -215,7 +341,10 @@ export default function ClosetsPage() {
       />
 
 
-      {/* INTRODUCCIÓN */}
+      {/* =================================
+          INTRODUCCIÓN
+      ================================= */}
+
       <section className="bg-white py-20 md:py-24">
 
         <div
@@ -233,6 +362,7 @@ export default function ClosetsPage() {
           "
         >
 
+          {/* IZQUIERDA */}
           <Reveal>
 
             <div>
@@ -283,6 +413,7 @@ export default function ClosetsPage() {
           </Reveal>
 
 
+          {/* DERECHA */}
           <Reveal
             delay={180}
             direction="right"
@@ -333,7 +464,10 @@ export default function ClosetsPage() {
       </section>
 
 
-      {/* PROYECTOS */}
+      {/* =================================
+          PROYECTOS
+      ================================= */}
+
       <ServiceProjects
         eyebrow="Proyectos realizados"
 
@@ -353,7 +487,10 @@ export default function ClosetsPage() {
       />
 
 
-      {/* BENEFICIOS */}
+      {/* =================================
+          BENEFICIOS
+      ================================= */}
+
       <ServiceBenefits
         eyebrow="Diseño personalizado"
 
@@ -369,16 +506,48 @@ export default function ClosetsPage() {
       />
 
 
-      {/* PROCESO */}
+      {/* =================================
+          MATERIALES Y ACABADOS
+      ================================= */}
+
+      <Materials
+        eyebrow="Opciones y acabados"
+
+        title="Detalles que completan tu clóset"
+
+        description="
+          Combinamos materiales, herrajes, iluminación
+          y una distribución interior adaptada a tus
+          necesidades de almacenamiento.
+        "
+
+        materials={closetMaterials}
+      />
+
+
+      {/* =================================
+          PROCESO
+      ================================= */}
+
       <Process
         image="/galeria-closet.png"
-        imageAlt="Proceso de diseño y fabricación de clóset a medida en Panamá"
-        whatsappMessage="Hola, quisiera cotizar un clóset a medida."
+
+        imageAlt="
+          Proceso de diseño y fabricación de clóset a medida en Panamá
+        "
+
+        whatsappMessage="
+          Hola, quisiera cotizar un clóset a medida.
+        "
+
         ctaLabel="Cotizar mi clóset"
-        />
+      />
 
 
-      {/* FAQ */}
+      {/* =================================
+          PREGUNTAS FRECUENTES
+      ================================= */}
+
       <ServiceFAQ
         eyebrow="Preguntas frecuentes"
 
@@ -393,11 +562,17 @@ export default function ClosetsPage() {
       />
 
 
-      {/* COTIZACIÓN */}
+      {/* =================================
+          COTIZACIÓN
+      ================================= */}
+
       <Cotizar />
 
 
-      {/* FOOTER */}
+      {/* =================================
+          FOOTER
+      ================================= */}
+
       <Footer />
 
     </main>

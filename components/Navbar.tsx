@@ -12,6 +12,7 @@ import {
   Mail,
   ChevronRight,
   X,
+  PaintRoller,
 } from 'lucide-react';
 
 import {
@@ -146,20 +147,25 @@ const navLinks = [
   },
   {
     name: 'Cocinas',
-    href: '/galeria?categoria=Cocinas',
+    href: '/cocinas',
   },
   {
     name: 'Clósets',
-    href: '/galeria?categoria=Closets',
+    href: '/closets',
   },
   {
     name: 'Centros de TV',
-    href: '/galeria?categoria=Centros%20de%20TV',
+    href: '/centros-de-tv',
+  },
+  {
+    name: 'Remodelaciones',
+    href: '/remodelaciones',
   },
   {
     name: 'Cotizar',
     href: '/#cotizar',
   },
+  
 ];
 
 
@@ -416,21 +422,28 @@ export default function Navbar() {
               <NavItem
                 icon={LayoutGrid}
                 label="Cocinas"
-                href="/galeria?categoria=Cocinas"
+                href="/cocinas"
                 onClick={() => setIsOpen(false)}
               />
 
               <NavItem
                 icon={DoorOpen}
                 label="Clósets"
-                href="/galeria?categoria=Closets"
+                href="/closets"
                 onClick={() => setIsOpen(false)}
               />
 
               <NavItem
                 icon={Monitor}
                 label="Centros de TV"
-                href="/galeria?categoria=Centros%20de%20TV"
+                href="/centros-de-tv"
+                onClick={() => setIsOpen(false)}
+              />
+
+              <NavItem
+                icon={PaintRoller}
+                label="Remodelaciones"
+                href="/remodelaciones"
                 onClick={() => setIsOpen(false)}
               />
 

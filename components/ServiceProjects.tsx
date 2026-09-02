@@ -40,7 +40,7 @@ export default function ServiceProjects({
   return (
     <section
       id="proyectos"
-      className="bg-white py-20 md:py-24"
+      className="bg-white pt-20 pb-4 md:pt-24 md:pb-6"
     >
 
       <div

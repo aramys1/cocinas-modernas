@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 
+import {
+  Layers,
+  Lightbulb,
+  Wrench,
+  Boxes,
+} from 'lucide-react';
+
 import ServiceHero from '@/components/ServiceHero';
 
 import ServiceProjects, {
@@ -11,6 +18,10 @@ import ServiceBenefits from '@/components/ServiceBenefits';
 import ServiceFAQ, {
   type FAQItem,
 } from '@/components/ServiceFAQ';
+
+import Materials, {
+  type MaterialItem,
+} from '@/components/Materials';
 
 import Process from '@/components/Process';
 import Cotizar from '@/components/Cotizar';
@@ -36,42 +47,154 @@ export const metadata: Metadata = {
 };
 
 
+/* =================================
+   PROYECTOS
+================================= */
+
 const tvProjects: ServiceProject[] = [
   {
     id: 1,
-    title: 'Centro de entretenimiento moderno',
-    category: 'Centros de TV',
-    image: '/centro-entretenimiento-gris.png',
+
+    title:
+      'Centro de entretenimiento moderno',
+
+    category:
+      'Centros de TV',
+
+    image:
+      '/centro-entretenimiento-gris.png',
 
     alt:
       'Centro de entretenimiento moderno fabricado a medida para televisión en Panamá',
   },
+
+  {
+    id: 2,
+
+    title:
+      'Mueble de TV a medida',
+
+    category:
+      'Centros de TV',
+
+    image:
+      '/galeria-tv.jpeg',
+
+    alt:
+      'Mueble de televisión y centro de entretenimiento diseñado a medida en Panamá',
+  },
 ];
 
 
+/* =================================
+   BENEFICIOS
+================================= */
+
 const benefits = [
   {
-    title: 'Diseño adaptado a tu pared',
+    title:
+      'Diseño adaptado a tu pared',
 
     description:
-      'Diseñamos el mueble según las dimensiones de la pared, el tamaño del televisor y la distribución del espacio.',
+      'Diseñamos el mueble según las dimensiones de la pared, el tamaño del televisor y la distribución general del espacio.',
   },
 
   {
-    title: 'Organización y almacenamiento',
+    title:
+      'Organización y almacenamiento',
 
     description:
       'Integramos módulos, gavetas, repisas y espacios para equipos electrónicos sin perder una apariencia limpia y ordenada.',
   },
 
   {
-    title: 'Acabados personalizados',
+    title:
+      'Acabados personalizados',
 
     description:
-      'El diseño puede combinar diferentes colores, texturas, iluminación y detalles decorativos para integrarse con el ambiente.',
+      'Podemos combinar colores, texturas, panelados e iluminación para crear un centro de entretenimiento integrado al ambiente.',
   },
 ];
 
+
+/* =================================
+   MATERIALES Y ACABADOS
+================================= */
+
+const tvMaterials: MaterialItem[] = [
+  {
+    title:
+      'Panelados y revestimientos',
+
+    description:
+      'Paneles y acabados que ayudan a integrar el televisor y el mobiliario dentro del diseño de la pared.',
+
+    image:
+      '/aglomerado-hidrofugo.png',
+
+    alt:
+      'Panelados para centro de entretenimiento a medida en Panamá',
+
+    icon:
+      Layers,
+  },
+
+  {
+    title:
+      'Iluminación LED',
+
+    description:
+      'Iluminación decorativa integrada en paneles y repisas para destacar el diseño del mueble.',
+
+    image:
+      '/luces-led.png',
+
+    alt:
+      'Iluminación LED en centro de entretenimiento moderno',
+
+    icon:
+      Lightbulb,
+  },
+
+  {
+    title:
+      'Herrajes y accesorios',
+
+    description:
+      'Bisagras, correderas y accesorios que permiten mantener puertas y gavetas funcionales y discretas.',
+
+    image:
+      '/herraje.png',
+
+    alt:
+      'Herrajes para muebles de televisión y centros de entretenimiento',
+
+    icon:
+      Wrench,
+  },
+
+  {
+    title:
+      'Almacenamiento integrado',
+
+    description:
+      'Diseñamos módulos para organizar consolas, controles, equipos electrónicos y otros accesorios.',
+
+    image:
+      '/espacios-funcionales.png',
+
+    alt:
+      'Almacenamiento integrado en centro de entretenimiento a medida',
+
+    icon:
+      Boxes,
+  },
+];
+
+
+/* =================================
+   PREGUNTAS FRECUENTES
+================================= */
 
 const faqs: FAQItem[] = [
   {
@@ -79,7 +202,7 @@ const faqs: FAQItem[] = [
       '¿Los centros de entretenimiento se fabrican a medida?',
 
     answer:
-      'Sí. Diseñamos cada centro de entretenimiento según las dimensiones de la pared, el televisor, los equipos que deseas colocar y el estilo del espacio.',
+      'Sí. Cada diseño se desarrolla según las dimensiones de la pared, el tamaño del televisor, los equipos que deseas colocar y el estilo del espacio.',
   },
 
   {
@@ -87,7 +210,7 @@ const faqs: FAQItem[] = [
       '¿Pueden diseñar el mueble según el tamaño de mi televisor?',
 
     answer:
-      'Sí. El tamaño y ubicación del televisor se toman en cuenta desde el diseño para mantener buenas proporciones y una distribución adecuada.',
+      'Sí. El tamaño y la ubicación del televisor se toman en cuenta desde el diseño para mantener buenas proporciones y una distribución adecuada.',
   },
 
   {
@@ -103,12 +226,12 @@ const faqs: FAQItem[] = [
       '¿Pueden incorporar iluminación LED?',
 
     answer:
-      'Sí. Dependiendo del diseño, se pueden incorporar luces LED decorativas para resaltar paneles, repisas u otros elementos del mueble.',
+      'Sí. Dependiendo del diseño, se puede incorporar iluminación LED en paneles, repisas y otros elementos del centro de entretenimiento.',
   },
 
   {
     question:
-      '¿Puedo elegir los colores y acabados?',
+      '¿Puedo elegir colores y acabados?',
 
     answer:
       'Sí. El diseño puede personalizarse con distintas combinaciones de colores, texturas y acabados según las opciones disponibles para el proyecto.',
@@ -125,6 +248,10 @@ const faqs: FAQItem[] = [
 
 
 export default function CentrosDeTVPage() {
+
+  /* =================================
+     DATOS ESTRUCTURADOS SEO
+  ================================= */
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -144,13 +271,19 @@ export default function CentrosDeTVPage() {
 
         areaServed: {
           '@type': 'Country',
-          name: 'Panamá',
+
+          name:
+            'Panamá',
         },
 
         provider: {
           '@type': 'Organization',
-          name: 'Cocinas Modernas',
-          telephone: '+507 6841-4434',
+
+          name:
+            'Cocinas Modernas',
+
+          telephone:
+            '+507 6841-4434',
         },
       },
 
@@ -160,11 +293,14 @@ export default function CentrosDeTVPage() {
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
 
-          name: faq.question,
+          name:
+            faq.question,
 
           acceptedAnswer: {
             '@type': 'Answer',
-            text: faq.answer,
+
+            text:
+              faq.answer,
           },
         })),
       },
@@ -175,7 +311,10 @@ export default function CentrosDeTVPage() {
   return (
     <main className="bg-white">
 
-      {/* SEO ESTRUCTURADO */}
+      {/* =================================
+          DATOS PARA GOOGLE
+      ================================= */}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -186,7 +325,10 @@ export default function CentrosDeTVPage() {
       />
 
 
-      {/* HERO */}
+      {/* =================================
+          HERO
+      ================================= */}
+
       <ServiceHero
         eyebrow="Diseño · Fabricación · Instalación"
 
@@ -195,7 +337,7 @@ export default function CentrosDeTVPage() {
         description="
           Diseñamos y fabricamos muebles de TV personalizados
           que combinan almacenamiento, diseño y funcionalidad
-          para crear un espacio moderno y organizado.
+          para crear espacios modernos y organizados.
         "
 
         image="/centro-entretenimiento-gris.png"
@@ -214,7 +356,10 @@ export default function CentrosDeTVPage() {
       />
 
 
-      {/* INTRODUCCIÓN */}
+      {/* =================================
+          INTRODUCCIÓN
+      ================================= */}
+
       <section className="bg-white py-20 md:py-24">
 
         <div
@@ -232,6 +377,7 @@ export default function CentrosDeTVPage() {
           "
         >
 
+          {/* IZQUIERDA */}
           <Reveal>
 
             <div>
@@ -282,6 +428,7 @@ export default function CentrosDeTVPage() {
           </Reveal>
 
 
+          {/* DERECHA */}
           <Reveal
             delay={180}
             direction="right"
@@ -302,25 +449,27 @@ export default function CentrosDeTVPage() {
             >
 
               <p>
-                Un centro de entretenimiento a medida puede
-                convertirse en uno de los elementos principales
-                de una sala, combinando el televisor con
-                almacenamiento y detalles decorativos.
+                Un centro de entretenimiento a medida
+                puede convertirse en uno de los elementos
+                principales de una sala, integrando el
+                televisor con almacenamiento y detalles
+                decorativos.
               </p>
 
 
               <p>
-                Diseñamos cada mueble considerando el tamaño
-                de la pared, las dimensiones del televisor,
-                los equipos electrónicos y la distribución
-                general del espacio.
+                Diseñamos cada mueble considerando el
+                tamaño de la pared, las dimensiones del
+                televisor, los equipos electrónicos y la
+                distribución general del espacio.
               </p>
 
 
               <p>
-                El resultado es un diseño integrado al ambiente,
-                con módulos y acabados personalizados que ayudan
-                a mantener el espacio organizado y visualmente limpio.
+                El resultado es un diseño integrado al
+                ambiente, con módulos, panelados e
+                iluminación que ayudan a mantener el
+                espacio organizado y visualmente limpio.
               </p>
 
             </div>
@@ -332,16 +481,19 @@ export default function CentrosDeTVPage() {
       </section>
 
 
-      {/* PROYECTOS */}
+      {/* =================================
+          PROYECTOS
+      ================================= */}
+
       <ServiceProjects
         eyebrow="Proyectos realizados"
 
         title="Centros de entretenimiento diseñados a medida"
 
         description="
-          Explora algunos de nuestros muebles de TV y centros
-          de entretenimiento. Puedes abrir cada fotografía para
-          observar los detalles y cotizar un proyecto similar.
+          Explora algunos de nuestros muebles de TV y
+          centros de entretenimiento. Abre cada fotografía
+          para observar los detalles y cotizar un diseño similar.
         "
 
         projects={tvProjects}
@@ -352,7 +504,10 @@ export default function CentrosDeTVPage() {
       />
 
 
-      {/* BENEFICIOS */}
+      {/* =================================
+          BENEFICIOS
+      ================================= */}
+
       <ServiceBenefits
         eyebrow="Diseño personalizado"
 
@@ -368,12 +523,34 @@ export default function CentrosDeTVPage() {
       />
 
 
-      {/* PROCESO */}
+      {/* =================================
+          MATERIALES Y ACABADOS
+      ================================= */}
+
+      <Materials
+        eyebrow="Diseño y acabados"
+
+        title="Panelados, iluminación y almacenamiento"
+
+        description="
+          Combinamos mobiliario, panelados, iluminación
+          y soluciones de almacenamiento para crear un
+          centro de entretenimiento integrado al espacio.
+        "
+
+        materials={tvMaterials}
+      />
+
+
+      {/* =================================
+          PROCESO
+      ================================= */}
+
       <Process
-        image="/centro-entretenimiento-gris.png"
+        image="/galeria-tv.jpeg"
 
         imageAlt="
-          Diseño y fabricación de centro de entretenimiento a medida en Panamá
+          Proceso de diseño y fabricación de centro de entretenimiento a medida en Panamá
         "
 
         whatsappMessage="
@@ -384,26 +561,35 @@ export default function CentrosDeTVPage() {
       />
 
 
-      {/* FAQ */}
+      {/* =================================
+          PREGUNTAS FRECUENTES
+      ================================= */}
+
       <ServiceFAQ
         eyebrow="Preguntas frecuentes"
 
         title="Preguntas sobre nuestros centros de entretenimiento"
 
         description="
-          Algunas respuestas antes de comenzar el diseño
-          de tu centro de entretenimiento a medida.
+          Algunas respuestas útiles antes de comenzar
+          el diseño de tu mueble de TV a medida.
         "
 
         faqs={faqs}
       />
 
 
-      {/* CTA */}
+      {/* =================================
+          COTIZAR
+      ================================= */}
+
       <Cotizar />
 
 
-      {/* FOOTER */}
+      {/* =================================
+          FOOTER
+      ================================= */}
+
       <Footer />
 
     </main>

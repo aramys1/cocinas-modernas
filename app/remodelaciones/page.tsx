@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
 
+import {
+  Layers,
+  Lightbulb,
+  Wrench,
+  Boxes,
+} from 'lucide-react';
+
 import ServiceHero from '@/components/ServiceHero';
 
 import ServiceProjects, {
@@ -11,6 +18,10 @@ import ServiceBenefits from '@/components/ServiceBenefits';
 import ServiceFAQ, {
   type FAQItem,
 } from '@/components/ServiceFAQ';
+
+import Materials, {
+  type MaterialItem,
+} from '@/components/Materials';
 
 import Process from '@/components/Process';
 import Cotizar from '@/components/Cotizar';
@@ -36,12 +47,22 @@ export const metadata: Metadata = {
 };
 
 
+/* =================================
+   PROYECTOS
+================================= */
+
 const remodelingProjects: ServiceProject[] = [
   {
     id: 1,
-    title: 'Remodelación interior',
-    category: 'Remodelaciones',
-    image: '/galeria-remodelaciones.jpeg',
+
+    title:
+      'Remodelación interior',
+
+    category:
+      'Remodelaciones',
+
+    image:
+      '/galeria-remodelaciones.jpeg',
 
     alt:
       'Remodelación de espacio interior con muebles a medida en Panamá',
@@ -49,29 +70,115 @@ const remodelingProjects: ServiceProject[] = [
 ];
 
 
+/* =================================
+   BENEFICIOS
+================================= */
+
 const benefits = [
   {
-    title: 'Renovación integral del espacio',
+    title:
+      'Renovación integral del espacio',
 
     description:
       'Analizamos la distribución existente y proponemos soluciones para mejorar la funcionalidad, apariencia y aprovechamiento del ambiente.',
   },
 
   {
-    title: 'Muebles diseñados para la remodelación',
+    title:
+      'Muebles diseñados para la remodelación',
 
     description:
       'Fabricamos muebles a medida que se integran con el nuevo diseño del espacio y ayudan a aprovechar mejor cada área disponible.',
   },
 
   {
-    title: 'Diseño y acabados coordinados',
+    title:
+      'Diseño y acabados coordinados',
 
     description:
       'Buscamos que colores, materiales, iluminación y mobiliario funcionen en conjunto para lograr un resultado más uniforme y moderno.',
   },
 ];
 
+
+/* =================================
+   MATERIALES Y SOLUCIONES
+================================= */
+
+const remodelingMaterials: MaterialItem[] = [
+  {
+    title:
+      'Panelados y revestimientos',
+
+    description:
+      'Soluciones decorativas para renovar paredes, integrar mobiliario y darle una nueva apariencia al espacio.',
+
+    image:
+      '/aglomerado-hidrofugo.png',
+
+    alt:
+      'Panelados y revestimientos para remodelaciones de interiores en Panamá',
+
+    icon:
+      Layers,
+  },
+
+  {
+    title:
+      'Iluminación LED',
+
+    description:
+      'Integramos iluminación decorativa y funcional para resaltar muebles, paneles y áreas específicas.',
+
+    image:
+      '/luces-led.png',
+
+    alt:
+      'Iluminación LED integrada en remodelación de interiores',
+
+    icon:
+      Lightbulb,
+  },
+
+  {
+    title:
+      'Mobiliario y herrajes',
+
+    description:
+      'Fabricamos muebles a medida con herrajes y accesorios adecuados para cada área del proyecto.',
+
+    image:
+      '/herraje.png',
+
+    alt:
+      'Herrajes y mobiliario a medida para remodelaciones',
+
+    icon:
+      Wrench,
+  },
+
+  {
+    title:
+      'Soluciones funcionales',
+
+    description:
+      'Diseñamos almacenamiento, módulos y distribución para aprovechar mejor cada espacio renovado.',
+
+    image:
+      '/espacios-funcionales.png',
+
+    alt:
+      'Soluciones funcionales y almacenamiento en remodelación de interiores',
+
+    icon:
+      Boxes,
+  },
+];
+
+
+/* =================================
+   PREGUNTAS FRECUENTES
+================================= */
 
 const faqs: FAQItem[] = [
   {
@@ -126,6 +233,10 @@ const faqs: FAQItem[] = [
 
 export default function RemodelacionesPage() {
 
+  /* =================================
+     DATOS ESTRUCTURADOS SEO
+  ================================= */
+
   const structuredData = {
     '@context': 'https://schema.org',
 
@@ -144,13 +255,19 @@ export default function RemodelacionesPage() {
 
         areaServed: {
           '@type': 'Country',
-          name: 'Panamá',
+
+          name:
+            'Panamá',
         },
 
         provider: {
           '@type': 'Organization',
-          name: 'Cocinas Modernas',
-          telephone: '+507 6841-4434',
+
+          name:
+            'Cocinas Modernas',
+
+          telephone:
+            '+507 6841-4434',
         },
       },
 
@@ -160,11 +277,14 @@ export default function RemodelacionesPage() {
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
 
-          name: faq.question,
+          name:
+            faq.question,
 
           acceptedAnswer: {
             '@type': 'Answer',
-            text: faq.answer,
+
+            text:
+              faq.answer,
           },
         })),
       },
@@ -175,7 +295,10 @@ export default function RemodelacionesPage() {
   return (
     <main className="bg-white">
 
-      {/* SEO ESTRUCTURADO */}
+      {/* =================================
+          DATOS PARA GOOGLE
+      ================================= */}
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -186,7 +309,10 @@ export default function RemodelacionesPage() {
       />
 
 
-      {/* HERO */}
+      {/* =================================
+          HERO
+      ================================= */}
+
       <ServiceHero
         eyebrow="Diseño · Renovación · Muebles a medida"
 
@@ -215,7 +341,10 @@ export default function RemodelacionesPage() {
       />
 
 
-      {/* INTRODUCCIÓN */}
+      {/* =================================
+          INTRODUCCIÓN
+      ================================= */}
+
       <section className="bg-white py-20 md:py-24">
 
         <div
@@ -233,6 +362,7 @@ export default function RemodelacionesPage() {
           "
         >
 
+          {/* IZQUIERDA */}
           <Reveal>
 
             <div>
@@ -283,6 +413,7 @@ export default function RemodelacionesPage() {
           </Reveal>
 
 
+          {/* DERECHA */}
           <Reveal
             delay={180}
             direction="right"
@@ -331,7 +462,10 @@ export default function RemodelacionesPage() {
       </section>
 
 
-      {/* PROYECTOS */}
+      {/* =================================
+          PROYECTOS
+      ================================= */}
+
       <ServiceProjects
         eyebrow="Proyectos realizados"
 
@@ -351,7 +485,10 @@ export default function RemodelacionesPage() {
       />
 
 
-      {/* BENEFICIOS */}
+      {/* =================================
+          BENEFICIOS
+      ================================= */}
+
       <ServiceBenefits
         eyebrow="Transformación personalizada"
 
@@ -366,7 +503,29 @@ export default function RemodelacionesPage() {
       />
 
 
-      {/* PROCESO */}
+      {/* =================================
+          MATERIALES Y SOLUCIONES
+      ================================= */}
+
+      <Materials
+        eyebrow="Soluciones para tu espacio"
+
+        title="Materiales y acabados según cada remodelación"
+
+        description="
+          Cada remodelación requiere soluciones diferentes.
+          Seleccionamos materiales, iluminación, mobiliario y
+          acabados de acuerdo con las necesidades del proyecto.
+        "
+
+        materials={remodelingMaterials}
+      />
+
+
+      {/* =================================
+          PROCESO
+      ================================= */}
+
       <Process
         image="/galeria-remodelaciones.jpeg"
 
@@ -382,7 +541,10 @@ export default function RemodelacionesPage() {
       />
 
 
-      {/* FAQ */}
+      {/* =================================
+          PREGUNTAS FRECUENTES
+      ================================= */}
+
       <ServiceFAQ
         eyebrow="Preguntas frecuentes"
 
@@ -397,11 +559,17 @@ export default function RemodelacionesPage() {
       />
 
 
-      {/* CTA */}
+      {/* =================================
+          COTIZAR
+      ================================= */}
+
       <Cotizar />
 
 
-      {/* FOOTER */}
+      {/* =================================
+          FOOTER
+      ================================= */}
+
       <Footer />
 
     </main>

@@ -19,7 +19,7 @@ export default function ServiceBenefits({
   benefits,
 }: ServiceBenefitsProps) {
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-white pt-8 pb-20 md:pt-10 md:pb-24">
 
       <div
         className="
