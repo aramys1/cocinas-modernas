@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   CheckCircle2,
   LoaderCircle,
@@ -22,6 +22,10 @@ export default function Cotizar() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
+  // Guarda el momento en que el usuario cargó/comenzó el formulario.
+  // Nos ayuda a detectar envíos automáticos demasiado rápidos.
+  const formStartedAt = useRef(Date.now());
+
   async function handleSubmit(
     event: React.FormEvent<HTMLFormElement>
   ) {
@@ -42,6 +46,10 @@ export default function Cotizar() {
       ubicacion: formData.get('ubicacion'),
       empresa: formData.get('empresa'),
       mensaje: formData.get('mensaje'),
+
+      // Anti-spam
+      website: formData.get('website'),
+      formStartedAt: formStartedAt.current,
     };
 
     try {
@@ -56,15 +64,23 @@ export default function Cotizar() {
       });
 
       if (!response.ok) {
-        throw new Error('No se pudo enviar la solicitud');
+        throw new Error(
+          'No se pudo enviar la solicitud'
+        );
       }
 
       form.reset();
+
+      // Reinicia el tiempo para un posible nuevo envío.
+      formStartedAt.current = Date.now();
+
       setSuccess(true);
+
     } catch {
       setError(
         'No pudimos enviar tu solicitud. Puedes contactarnos directamente por WhatsApp.'
       );
+
     } finally {
       setLoading(false);
     }
@@ -91,7 +107,7 @@ export default function Cotizar() {
       >
 
         {/* INFORMACIÓN */}
-        <div className="flex flex-col justify-top">
+        <div className="flex flex-col justify-start">
 
           <p
             className="
@@ -208,6 +224,32 @@ export default function Cotizar() {
             className="space-y-6"
           >
 
+            {/* HONEYPOT ANTI-SPAM */}
+            <div
+              aria-hidden="true"
+              className="
+                absolute
+                -left-[9999px]
+                top-auto
+                h-px
+                w-px
+                overflow-hidden
+              "
+            >
+              <label htmlFor="website">
+                Sitio web
+              </label>
+
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
+
             {/* NOMBRE + TELÉFONO */}
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
 
@@ -224,6 +266,8 @@ export default function Cotizar() {
                   name="nombre"
                   type="text"
                   required
+                  minLength={2}
+                  maxLength={80}
                   autoComplete="name"
                   placeholder="Tu nombre"
                   className="
@@ -257,7 +301,10 @@ export default function Cotizar() {
                   name="telefono"
                   type="tel"
                   required
+                  minLength={7}
+                  maxLength={25}
                   autoComplete="tel"
+                  inputMode="tel"
                   placeholder="+507 6000-0000"
                   className="
                     w-full
@@ -287,6 +334,7 @@ export default function Cotizar() {
                 className="mb-2 block text-sm font-semibold text-black"
               >
                 Correo electrónico
+
                 <span className="ml-2 font-normal text-neutral-400">
                   Opcional
                 </span>
@@ -296,6 +344,7 @@ export default function Cotizar() {
                 id="email"
                 name="email"
                 type="email"
+                maxLength={120}
                 autoComplete="email"
                 placeholder="correo@ejemplo.com"
                 className="
@@ -381,6 +430,7 @@ export default function Cotizar() {
                 <option value="Otro mueble a medida">
                   Otro mueble a medida
                 </option>
+
               </select>
 
             </div>
@@ -403,6 +453,8 @@ export default function Cotizar() {
                   name="ubicacion"
                   type="text"
                   required
+                  minLength={2}
+                  maxLength={120}
                   placeholder="Ej. Costa del Este, Panamá"
                   className="
                     w-full
@@ -430,6 +482,7 @@ export default function Cotizar() {
                   className="mb-2 block text-sm font-semibold text-black"
                 >
                   Empresa / organización
+
                   <span className="ml-2 font-normal text-neutral-400">
                     Opcional
                   </span>
@@ -439,6 +492,7 @@ export default function Cotizar() {
                   id="empresa"
                   name="empresa"
                   type="text"
+                  maxLength={120}
                   placeholder="Nombre de la empresa"
                   className="
                     w-full
@@ -475,6 +529,8 @@ export default function Cotizar() {
                 id="mensaje"
                 name="mensaje"
                 required
+                minLength={10}
+                maxLength={2000}
                 rows={5}
                 placeholder="Ej. Quiero renovar una cocina e incluir muebles aéreos, gavetas y una torre para hornos..."
                 className="
@@ -497,7 +553,7 @@ export default function Cotizar() {
             </div>
 
 
-            {/* MENSAJE DE ÉXITO */}
+            {/* ÉXITO */}
             {success && (
               <div
                 className="
