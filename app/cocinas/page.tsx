@@ -56,9 +56,15 @@ export const metadata: Metadata = {
 const kitchenProjects: ServiceProject[] = [
   {
     id: 1,
-    title: 'Cocina gris',
-    category: 'Cocinas',
-    image: '/cocina-gris.png',
+
+    title:
+      'Cocina gris',
+
+    category:
+      'Cocinas',
+
+    image:
+      '/cocina-gris.png',
 
     alt:
       'Cocina moderna gris fabricada a medida en Panamá',
@@ -66,9 +72,15 @@ const kitchenProjects: ServiceProject[] = [
 
   {
     id: 2,
-    title: 'Cocina moderna',
-    category: 'Cocinas',
-    image: '/process.png',
+
+    title:
+      'Cocina moderna',
+
+    category:
+      'Cocinas',
+
+    image:
+      '/process.png',
 
     alt:
       'Cocina moderna de madera fabricada a medida en Panamá',
@@ -82,24 +94,27 @@ const kitchenProjects: ServiceProject[] = [
 
 const benefits = [
   {
-    title: 'Diseño adaptado a tu espacio',
+    title:
+      'Diseño adaptado a tu espacio',
 
     description:
       'Cada cocina se diseña según las medidas y distribución real de tu hogar para aprovechar mejor cada área disponible.',
   },
 
   {
-    title: 'Almacenamiento funcional',
+    title:
+      'Almacenamiento funcional',
 
     description:
       'Planificamos módulos, gavetas y espacios de almacenamiento pensando en comodidad, organización y uso diario.',
   },
 
   {
-    title: 'Materiales y acabados personalizados',
+    title:
+      'Tu cocina lista para usar',
 
     description:
-      'Puedes elegir combinaciones de colores, superficies, herrajes e iluminación para crear una cocina acorde a tu estilo.',
+      'Podemos encargarnos de los muebles, instalación, plomería y electricidad básica, además de la colocación de fregadores, extractores y electrodomésticos contemplados en el proyecto.',
   },
 ];
 
@@ -110,87 +125,105 @@ const benefits = [
 
 const kitchenMaterials: MaterialItem[] = [
   {
-    title: 'Aglomerado Hidrófugo',
+    title:
+      'Aglomerado Hidrófugo',
 
     description:
       'Tableros resistentes a la humedad, ideales para el uso diario en cocinas.',
 
-    image: '/aglomerado-hidrofugo.png',
+    image:
+      '/aglomerado-hidrofugo.png',
 
     alt:
       'Aglomerado hidrófugo para muebles de cocina a medida en Panamá',
 
-    icon: Droplets,
+    icon:
+      Droplets,
   },
 
   {
-    title: 'Sobres de cuarzo',
+    title:
+      'Sobres de cuarzo',
 
     description:
       'Superficies modernas, resistentes y disponibles en diferentes acabados.',
 
-    image: '/cuarzo.png',
+    image:
+      '/cuarzo.png',
 
     alt:
       'Sobre de cuarzo para cocina moderna a medida',
 
-    icon: Gem,
+    icon:
+      Gem,
   },
 
   {
-    title: 'Sobres de granito',
+    title:
+      'Sobres de granito',
 
     description:
       'Piedra natural resistente que aporta carácter y durabilidad a la cocina.',
 
-    image: '/granito.png',
+    image:
+      '/granito.png',
 
     alt:
       'Sobre de granito para cocina a medida en Panamá',
 
-    icon: Square,
+    icon:
+      Square,
   },
 
   {
-    title: 'Herrajes de calidad',
+    title:
+      'Herrajes de calidad',
 
     description:
       'Bisagras, correderas y accesorios pensados para un uso cómodo y duradero.',
 
-    image: '/herraje.png',
+    image:
+      '/herraje.png',
 
     alt:
       'Herrajes para muebles de cocina fabricados a medida',
 
-    icon: Wrench,
+    icon:
+      Wrench,
   },
 
   {
-    title: 'Iluminación LED',
+    title:
+      'Iluminación LED',
 
     description:
       'Iluminación integrada para mejorar la funcionalidad y resaltar el diseño.',
 
-    image: '/luces-led.png',
+    image:
+      '/luces-led.png',
 
     alt:
       'Iluminación LED integrada en cocina moderna',
 
-    icon: Lightbulb,
+    icon:
+      Lightbulb,
   },
 
   {
-    title: 'Distribución funcional',
+    title:
+      'Distribución funcional',
 
     description:
       'Diseñamos módulos y almacenamiento para aprovechar mejor cada espacio disponible.',
 
-    image: '/espacios-funcionales.png',
+    image:
+      '/espacios-funcionales.png',
 
     alt:
       'Distribución funcional de cocina diseñada a medida',
 
-    icon: Boxes,
+    icon:
+      Boxes,
   },
 ];
 
@@ -202,42 +235,66 @@ const kitchenMaterials: MaterialItem[] = [
 const faqs: FAQItem[] = [
   {
     question:
-      '¿Diseñan cocinas completamente a medida?',
+      '¿Fabrican gabinetes, gavetas y módulos de cocina completamente a medida?',
 
     answer:
-      'Sí. Cada proyecto se diseña considerando las medidas del espacio, la distribución, las necesidades de almacenamiento y las preferencias del cliente.',
+      'Sí. Cada cocina se diseña según las dimensiones reales del espacio y las necesidades del cliente. La distribución puede incluir gabinetes, gavetas, módulos aéreos y diferentes soluciones de almacenamiento.',
   },
 
   {
     question:
-      '¿Realizan la medición antes de fabricar la cocina?',
+      '¿Toman en cuenta los electrodomésticos al diseñar la cocina?',
 
     answer:
-      'Sí. La medición del espacio forma parte del proceso para preparar un diseño y una cotización adecuados al proyecto.',
+      'Sí. El diseño contempla las dimensiones y espacios necesarios para nevera, estufa, horno, microondas, extractor, fregador y otros elementos que formen parte del proyecto. El diseño debe ser aprobado por el cliente antes de iniciar la fabricación.',
   },
 
   {
     question:
-      '¿Qué materiales utilizan para las cocinas?',
+      '¿Pueden entregar la cocina terminada y lista para usar?',
 
     answer:
-      'Trabajamos con materiales resistentes y acabados pensados para el uso diario, incluyendo tableros resistentes a la humedad, herrajes de calidad y diferentes opciones de sobres.',
+      'Sí. Podemos encargarnos del proyecto de forma integral, incluyendo la instalación de los muebles, trabajos básicos de plomería y electricidad, fregadores comunes, extractores y electrodomésticos contemplados en el diseño. Si alguna instalación requiere condiciones especiales, se evalúa y se considera dentro de la cotización.',
   },
 
   {
     question:
-      '¿Puedo elegir colores y acabados?',
+      '¿Pueden encargarse también de plomería, electricidad y albañilería?',
 
     answer:
-      'Sí. El diseño puede personalizarse con diferentes colores, texturas, tiradores, superficies e iluminación según las opciones disponibles para el proyecto.',
+      'Sí. Si el proyecto lo requiere, podemos coordinar estos trabajos para facilitar la remodelación y mantener una mejor integración entre instalaciones, acabados y mobiliario. De esta manera el cliente reduce la necesidad de coordinar diferentes contratistas por separado.',
   },
 
   {
     question:
-      '¿También realizan la instalación?',
+      '¿Cuánto demora la instalación de una cocina?',
 
     answer:
-      'Sí. El proceso contempla la fabricación y la instalación de los muebles para entregar el proyecto listo en el espacio del cliente.',
+      'Cuando el espacio está preparado y todos los elementos acordados están disponibles, normalmente buscamos completar la instalación de una cocina residencial en un solo día. Esto permite reducir las molestias dentro del hogar y optimizar el trabajo de instalación. Proyectos o trabajos adicionales pueden requerir más tiempo.',
+  },
+
+  {
+    question:
+      '¿Puedo elegir los materiales, colores y acabados?',
+
+    answer:
+      'Sí. Cada proyecto puede personalizarse con diferentes colores, texturas, herrajes, iluminación y superficies. También contamos con opciones de sobres de cuarzo o granito según las características del proyecto.',
+  },
+
+  {
+    question:
+      '¿Qué ocurre si quiero hacer cambios después de aprobar el diseño?',
+
+    answer:
+      'Los cambios pueden evaluarse, pero modificaciones o trabajos adicionales solicitados después de aprobar el diseño pueden afectar materiales, tiempo de instalación y mano de obra. Cuando sea necesario, se realizará un ajuste en la cotización antes de continuar.',
+  },
+
+  {
+    question:
+      '¿Qué garantía tienen las cocinas?',
+
+    answer:
+      'Ofrecemos una garantía de 3 meses por defectos relacionados con la instalación. La garantía no cubre daños ocasionados por mal uso, productos de limpieza inadecuados, sustancias abrasivas u otras condiciones ajenas al trabajo de instalación.',
   },
 ];
 
@@ -252,22 +309,23 @@ export default function CocinasPage() {
     '@context': 'https://schema.org',
 
     '@graph': [
-
       {
         '@type': 'Service',
 
         name:
-          'Diseño y fabricación de cocinas a medida en Panamá',
+          'Diseño y fabricación de cocinas y muebles de cocina a medida en Panamá',
 
         serviceType:
-          'Diseño y fabricación de cocinas a medida',
+          'Diseño, fabricación e instalación de cocinas y muebles de cocina a medida',
 
         description:
-          'Diseño, fabricación e instalación de cocinas modernas a medida en Panamá.',
+          'Diseño, fabricación e instalación de cocinas a medida en Panamá, con mobiliario, almacenamiento y soluciones integrales para cada proyecto.',
 
         areaServed: {
           '@type': 'Country',
-          name: 'Panamá',
+
+          name:
+            'Panamá',
         },
 
         provider: {
@@ -280,7 +338,6 @@ export default function CocinasPage() {
             '+507 6841-4434',
         },
       },
-
 
       {
         '@type': 'FAQPage',
@@ -299,7 +356,6 @@ export default function CocinasPage() {
           },
         })),
       },
-
     ],
   };
 
@@ -331,9 +387,9 @@ export default function CocinasPage() {
         title="Cocinas a medida en Panamá"
 
         description="
-          Diseñamos y fabricamos cocinas modernas adaptadas
-          a cada espacio, combinando funcionalidad,
-          almacenamiento y acabados personalizados.
+          Diseñamos y fabricamos muebles de cocina a medida,
+          combinando funcionalidad, almacenamiento y acabados
+          personalizados para aprovechar mejor cada espacio.
         "
 
         image="/cocina-gris-hero.png"
@@ -441,6 +497,8 @@ export default function CocinasPage() {
                 leading-relaxed
                 text-gray-600
                 md:text-lg
+                md:text-justify
+                md:hyphens-auto
               "
             >
 
@@ -453,7 +511,7 @@ export default function CocinasPage() {
 
 
               <p>
-                 La distribución, el almacenamiento, los materiales,
+                La distribución, el almacenamiento, los materiales,
                 la iluminación y los acabados se planifican para
                 crear un espacio funcional y agradable para el
                 uso diario.
@@ -461,10 +519,9 @@ export default function CocinasPage() {
 
 
               <p>
-                Cada proyecto se desarrolla de acuerdo
-                con las medidas del espacio y las
-                preferencias del cliente, buscando un
-                equilibrio entre diseño, comodidad y
+                Cada proyecto se desarrolla de acuerdo con las
+                medidas del espacio y las preferencias del cliente,
+                buscando un equilibrio entre diseño, comodidad y
                 durabilidad.
               </p>
 
@@ -567,8 +624,8 @@ export default function CocinasPage() {
         title="Preguntas sobre nuestras cocinas"
 
         description="
-          Resolvemos algunas de las dudas más comunes
-          antes de comenzar un proyecto de cocina a medida.
+          Conoce más sobre el diseño, fabricación,
+          instalación y entrega de nuestras cocinas a medida.
         "
 
         faqs={faqs}

@@ -193,42 +193,74 @@ const closetMaterials: MaterialItem[] = [
 const faqs: FAQItem[] = [
   {
     question:
-      '¿Los clósets se fabrican completamente a medida?',
+      '¿Qué tipos de clósets fabrican?',
 
     answer:
-      'Sí. Diseñamos cada clóset según las medidas reales del espacio y las necesidades de almacenamiento del cliente.',
+      'Fabricamos clósets empotrados, abiertos, walk-in closets, vestidores y otras soluciones de almacenamiento a medida. Podemos proponer un diseño desde cero o trabajar a partir de una idea o referencia del cliente, siempre considerando las posibilidades reales del espacio.',
   },
 
   {
     question:
-      '¿Puedo elegir la distribución interior?',
+      '¿Puedo decidir completamente la distribución interior?',
 
     answer:
-      'Sí. La distribución puede personalizarse con áreas para colgar ropa, repisas, gavetas y otros espacios de almacenamiento.',
+      'Sí. La distribución puede personalizarse con gavetas, repisas, áreas para colgar ropa, zapateras, maleteros y otros espacios según tus necesidades. También podemos proponer ajustes que ayuden a aprovechar mejor el clóset o a optimizar el costo del proyecto.',
   },
 
   {
     question:
-      '¿Puedo elegir colores y acabados?',
+      '¿Qué tipos de puertas, colores y acabados puedo elegir?',
 
     answer:
-      'Sí. Trabajamos diferentes opciones de colores, texturas y acabados para adaptar el diseño al estilo del espacio.',
+      'Podemos trabajar puertas corredizas o abatibles, además de diferentes colores, texturas, tiradores, herrajes y acabados. El cliente puede personalizar estos elementos de acuerdo con el estilo que desea y las condiciones del espacio.',
   },
 
   {
     question:
-      '¿Realizan la medición del espacio?',
+      '¿Pueden integrar iluminación LED en el clóset?',
 
     answer:
-      'Sí. Tomamos las medidas necesarias antes de fabricar para asegurar que el diseño se adapte correctamente al lugar de instalación.',
+      'Sí. Podemos incorporar iluminación LED en diferentes áreas del clóset según el diseño y las preferencias del cliente, integrándola desde la planificación del proyecto.',
   },
 
   {
     question:
-      '¿También realizan la instalación?',
+      '¿Pueden fabricar clósets en espacios pequeños, irregulares o hasta el techo?',
 
     answer:
-      'Sí. Fabricamos e instalamos los muebles para entregar el clóset correctamente armado y ajustado al espacio.',
+      'Sí. Al fabricar a medida buscamos aprovechar al máximo el espacio disponible, incluyendo rincones, columnas, paredes irregulares e instalaciones hasta el techo. Si existen desniveles o descuadres importantes, se toman en cuenta durante el diseño y se explican las limitaciones que puedan influir en el resultado final.',
+  },
+
+  {
+    question:
+      '¿Puedo ver un diseño o render antes de fabricar el clóset?',
+
+    answer:
+      'Sí. Podemos preparar diseños o renders para ayudar a visualizar la distribución, proporciones y apariencia del clóset. El cliente también puede presentar sus propias ideas o referencias para desarrollar el diseño.',
+  },
+
+  {
+    question:
+      '¿Pueden retirar un clóset existente e instalar el nuevo?',
+
+    answer:
+      'Sí. Si el espacio ya tiene un clóset, podemos contemplar su desmontaje y reemplazo como parte del proyecto. También podemos coordinar otros trabajos necesarios si se desea realizar una remodelación más completa del área.',
+  },
+
+  {
+    question:
+      '¿Cuánto demora la instalación y qué garantía ofrecen?',
+
+    answer:
+      'La instalación de un clóset residencial suele completarse en un día cuando el espacio está preparado y el proyecto se mantiene según lo acordado. Ofrecemos 3 meses de garantía por defectos relacionados con la instalación. La garantía no cubre daños ocasionados por mal uso, productos de limpieza inadecuados, sustancias abrasivas u otras causas ajenas a la instalación.',
+  },
+
+  {
+    question:
+      '¿Trabajan clósets para proyectos residenciales y comerciales de mayor escala?',
+
+    answer:
+      'Sí. Además de clósets para residencias individuales, podemos fabricar e instalar mobiliario para proyectos de mayor volumen, incluyendo desarrollos residenciales, comerciales y empresariales, adaptando el diseño y la planificación a las necesidades de cada proyecto.',
   },
 ];
 
@@ -554,8 +586,9 @@ export default function ClosetsPage() {
         title="Preguntas sobre nuestros clósets"
 
         description="
-          Algunas respuestas útiles antes de comenzar
-          el diseño de tu clóset a medida.
+          Conoce más sobre el diseño, personalización,
+          fabricación e instalación de nuestros clósets
+          y soluciones de almacenamiento a medida.
         "
 
         faqs={faqs}

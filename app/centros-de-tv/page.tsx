@@ -199,50 +199,74 @@ const tvMaterials: MaterialItem[] = [
 const faqs: FAQItem[] = [
   {
     question:
-      '¿Los centros de entretenimiento se fabrican a medida?',
+      '¿Instalan también el televisor y dejan el área lista para usar?',
 
     answer:
-      'Sí. Cada diseño se desarrolla según las dimensiones de la pared, el tamaño del televisor, los equipos que deseas colocar y el estilo del espacio.',
+      'Sí. Podemos encargarnos de la instalación del centro de entretenimiento, televisor y otros elementos contemplados en el proyecto para entregar el área lista para usar. Si se requieren trabajos adicionales de remodelación, también pueden incluirse dentro de la cotización.',
   },
 
   {
     question:
-      '¿Pueden diseñar el mueble según el tamaño de mi televisor?',
+      '¿Pueden ocultar los cables del televisor y los equipos?',
 
     answer:
-      'Sí. El tamaño y la ubicación del televisor se toman en cuenta desde el diseño para mantener buenas proporciones y una distribución adecuada.',
+      'Sí. Durante el diseño buscamos ocultar o integrar los cables y conexiones en la medida de lo posible para mantener el área limpia y ordenada. Esto puede incluir conexiones para televisión, consolas, barras de sonido y otros equipos incluidos en el proyecto.',
   },
 
   {
     question:
-      '¿Se pueden incluir gavetas y espacios de almacenamiento?',
+      '¿Pueden incluir electricidad, tomacorrientes e iluminación LED?',
 
     answer:
-      'Sí. Podemos integrar gavetas, puertas, repisas y módulos para organizar controles, consolas, equipos electrónicos y otros objetos.',
+      'Sí. Podemos contemplar trabajos eléctricos básicos, puntos de conexión e iluminación LED como parte del diseño. Estos elementos deben definirse durante la planificación y cotización para integrarlos correctamente.',
   },
 
   {
     question:
-      '¿Pueden incorporar iluminación LED?',
+      '¿Pueden hacer panelados y muebles completos alrededor del televisor?',
 
     answer:
-      'Sí. Dependiendo del diseño, se puede incorporar iluminación LED en paneles, repisas y otros elementos del centro de entretenimiento.',
+      'Sí. Diseñamos panelados, módulos, gavetas, puertas, repisas, elementos aéreos y otras soluciones según el espacio y la idea del cliente. Podemos trabajar a partir de una propuesta propia o desarrollar el diseño a partir de referencias del cliente.',
   },
 
   {
     question:
-      '¿Puedo elegir colores y acabados?',
+      '¿Toman en cuenta consolas, barras de sonido y otros equipos electrónicos?',
 
     answer:
-      'Sí. El diseño puede personalizarse con distintas combinaciones de colores, texturas y acabados según las opciones disponibles para el proyecto.',
+      'Sí. Podemos diseñar espacios específicos para consolas, decodificadores, routers, barras de sonido y otros equipos siempre que sean considerados durante el diseño y la cotización. Si es necesario, también pueden contemplarse espacios de ventilación.',
   },
 
   {
     question:
-      '¿También realizan la instalación?',
+      '¿Puedo ver un diseño antes de fabricar el centro de entretenimiento?',
 
     answer:
-      'Sí. Fabricamos e instalamos el centro de entretenimiento para que quede correctamente ajustado al espacio.',
+      'Sí. Podemos trabajar con diseños o representaciones visuales para definir la distribución, proporciones, panelados, iluminación y almacenamiento antes de iniciar la fabricación.',
+  },
+
+  {
+    question:
+      '¿Pueden retirar un centro de TV existente y remodelar el área?',
+
+    answer:
+      'Sí. Podemos desmontar mobiliario existente y realizar trabajos adicionales para renovar el espacio, incluyendo panelados, pequeñas adecuaciones, electricidad u otros elementos previamente acordados en el alcance del proyecto.',
+  },
+
+  {
+    question:
+      '¿Cuánto demora la instalación y qué garantía ofrecen?',
+
+    answer:
+      'La instalación de un centro de entretenimiento residencial suele completarse en un día cuando el espacio está preparado y todos los elementos acordados están disponibles. Ofrecemos 3 meses de garantía por defectos relacionados con la instalación. La garantía no cubre daños por mal uso, productos de limpieza inadecuados, sustancias abrasivas u otras causas ajenas a la instalación.',
+  },
+
+  {
+    question:
+      '¿Trabajan centros de entretenimiento para proyectos residenciales y comerciales?',
+
+    answer:
+      'Sí. Podemos desarrollar centros de entretenimiento, panelados y mobiliario para residencias, oficinas, salas de reuniones, recepciones y otros proyectos comerciales o empresariales, adaptando el diseño y la planificación al alcance de cada trabajo.',
   },
 ];
 

@@ -30,17 +30,17 @@ import Reveal from '@/components/Reveal';
 
 
 export const metadata: Metadata = {
-  title: 'Remodelaciones en Panamá',
+  title: 'Remodelaciones Residenciales y Comerciales en Panamá',
 
   description:
-    'Remodelaciones de interiores en Panamá con diseño, fabricación de muebles a medida y renovación de espacios. Transformamos cocinas, áreas sociales y otros ambientes del hogar.',
+    'Remodelaciones residenciales y comerciales en Panamá. Coordinamos mobiliario a medida, albañilería, plomería, electricidad y acabados para transformar cada espacio.',
 
   openGraph: {
     title:
-      'Remodelaciones en Panamá | Cocinas Modernas',
+      'Remodelaciones Residenciales y Comerciales en Panamá | Cocinas Modernas',
 
     description:
-      'Renovamos espacios con soluciones de diseño, muebles a medida y acabados personalizados para transformar hogares en Panamá.',
+      'Transformamos espacios residenciales, comerciales e institucionales con mobiliario a medida, instalaciones y soluciones adaptadas a cada proyecto.',
 
     type: 'website',
   },
@@ -77,10 +77,10 @@ const remodelingProjects: ServiceProject[] = [
 const benefits = [
   {
     title:
-      'Renovación integral del espacio',
+      'Proyecto completo de principio a fin',
 
     description:
-      'Analizamos la distribución existente y proponemos soluciones para mejorar la funcionalidad, apariencia y aprovechamiento del ambiente.',
+      'Podemos coordinar mobiliario, desmontajes, albañilería, plomería, electricidad y acabados para facilitar la remodelación y entregar el espacio listo para usar.',
   },
 
   {
@@ -96,7 +96,7 @@ const benefits = [
       'Diseño y acabados coordinados',
 
     description:
-      'Buscamos que colores, materiales, iluminación y mobiliario funcionen en conjunto para lograr un resultado más uniforme y moderno.',
+      'Buscamos que colores, materiales, iluminación y mobiliario funcionen en conjunto para lograr un resultado coherente y adaptado al proyecto.',
   },
 ];
 
@@ -186,47 +186,79 @@ const faqs: FAQItem[] = [
       '¿Qué tipo de espacios pueden remodelar?',
 
     answer:
-      'Podemos trabajar en diferentes áreas del hogar, incluyendo cocinas, salas, áreas sociales y otros espacios que requieran renovación y mobiliario a medida.',
+      'Podemos trabajar en prácticamente cualquier tipo de espacio residencial, comercial o institucional. Si el cliente tiene una idea o propuesta, evaluamos el lugar y buscamos la mejor forma de desarrollarla teniendo en cuenta sus condiciones, dimensiones y limitaciones.',
   },
 
   {
     question:
-      '¿La remodelación puede incluir muebles a medida?',
+      '¿Pueden encargarse de una remodelación completa de principio a fin?',
 
     answer:
-      'Sí. Podemos diseñar y fabricar muebles personalizados como parte de la remodelación para adaptar mejor el espacio a las necesidades del cliente.',
+      'Sí. Podemos coordinar y ejecutar los diferentes trabajos necesarios para facilitar el proceso al cliente, incluyendo desmontajes, mobiliario a medida, albañilería, plomería, electricidad, acabados y otros trabajos previamente acordados. Nuestro objetivo es entregar el espacio terminado y listo para usar.',
   },
 
   {
     question:
-      '¿Realizan una evaluación del espacio antes de cotizar?',
+      '¿Necesito contratar otros profesionales por separado?',
 
     answer:
-      'Sí. Revisamos las condiciones y dimensiones del área para definir el alcance del proyecto y preparar una propuesta adecuada.',
+      'No necesariamente. Podemos gestionar gran parte de los trabajos requeridos dentro de una remodelación. El cliente también puede contratar servicios externos si lo prefiere, pero no podemos ofrecer garantía sobre trabajos realizados por terceros.',
   },
 
   {
     question:
-      '¿Puedo elegir los materiales y acabados?',
+      '¿Pueden retirar muebles o elementos existentes antes de remodelar?',
 
     answer:
-      'Sí. Dependiendo del proyecto, se pueden seleccionar diferentes opciones de materiales, colores, superficies y acabados para lograr el estilo deseado.',
+      'Sí. Podemos contemplar el desmontaje y retiro de muebles, panelados, revestimientos y otros elementos existentes como parte del alcance de la remodelación.',
   },
 
   {
     question:
-      '¿Pueden remodelar solamente una parte del espacio?',
+      '¿Puedo elegir los materiales, colores y acabados?',
 
     answer:
-      'Sí. El proyecto puede enfocarse en un área específica o contemplar una renovación más amplia según las necesidades y el presupuesto.',
+      'Sí. El cliente puede elegir los materiales, colores, texturas y acabados del proyecto. Puede adquirirlos directamente o, si lo prefiere, podemos gestionar las compras con nuestros proveedores para facilitar el proceso y trabajar con materiales adecuados para cada aplicación.',
   },
 
   {
     question:
-      '¿También realizan la instalación de los muebles?',
+      '¿Pueden preparar un diseño o render antes de comenzar?',
 
     answer:
-      'Sí. Los muebles fabricados para la remodelación pueden ser instalados como parte del proyecto para entregar el espacio terminado.',
+      'Sí. Dependiendo del proyecto podemos trabajar con diseños o renders para ayudar a visualizar la propuesta antes de iniciar. En remodelaciones de mayor tamaño o complejidad, este servicio puede representar un costo adicional.',
+  },
+
+  {
+    question:
+      '¿Qué ocurre si quiero hacer cambios después de iniciar la remodelación?',
+
+    answer:
+      'Los cambios pueden evaluarse durante el proyecto, pero cualquier modificación solicitada después de haber acordado el alcance puede requerir ajustes en materiales, tiempo y mano de obra. Cuando sea necesario, se replanteará el costo antes de continuar.',
+  },
+
+  {
+    question:
+      '¿Qué pasa si durante la remodelación aparecen problemas que no se veían inicialmente?',
+
+    answer:
+      'Buscamos solucionar los imprevistos siempre que sea razonablemente posible. Si encontramos daños o condiciones preexistentes que requieren trabajo adicional importante, evaluamos la situación con el cliente. Cuando el problema requiera una especialidad fuera del alcance acordado, puede recomendarse que sea atendido por un profesional especializado.',
+  },
+
+  {
+    question:
+      '¿Cuánto demora una remodelación y qué garantía ofrecen?',
+
+    answer:
+      'El tiempo depende del tamaño, complejidad y alcance de cada proyecto. Antes de comenzar se establece una planificación según los trabajos acordados. Ofrecemos 3 meses de garantía por defectos relacionados con nuestra instalación. La garantía no cubre daños por mal uso, productos de limpieza inadecuados, sustancias abrasivas ni trabajos realizados por terceros.',
+  },
+
+  {
+    question:
+      '¿Trabajan remodelaciones residenciales, comerciales e institucionales?',
+
+    answer:
+      'Sí. Podemos atender residencias, negocios, oficinas, edificios, hospitales, entidades públicas, empresas privadas y otros tipos de instalaciones. Cuando el proyecto lo requiere, también podemos organizar los trabajos por etapas o en horarios acordados para reducir las interrupciones del espacio.',
   },
 ];
 
@@ -245,13 +277,13 @@ export default function RemodelacionesPage() {
         '@type': 'Service',
 
         name:
-          'Remodelaciones de interiores en Panamá',
+          'Remodelaciones residenciales y comerciales en Panamá',
 
         serviceType:
-          'Remodelación de interiores y fabricación de muebles a medida',
+          'Remodelaciones, renovación de interiores y fabricación de muebles a medida',
 
         description:
-          'Remodelación de espacios interiores en Panamá con diseño, fabricación e instalación de mobiliario a medida.',
+          'Remodelaciones residenciales, comerciales e institucionales en Panamá con mobiliario a medida, instalaciones y acabados adaptados a cada proyecto.',
 
         areaServed: {
           '@type': 'Country',
@@ -319,10 +351,10 @@ export default function RemodelacionesPage() {
         title="Remodelaciones en Panamá"
 
         description="
-          Transformamos espacios con soluciones de diseño,
-          mobiliario a medida y acabados personalizados para
-          crear ambientes más funcionales, modernos y adaptados
-          a cada necesidad.
+          Transformamos espacios residenciales, comerciales
+          e institucionales con mobiliario a medida,
+          instalaciones y acabados adaptados a las
+          necesidades de cada proyecto.
         "
 
         image="/galeria-remodelaciones.jpeg"
@@ -430,6 +462,8 @@ export default function RemodelacionesPage() {
                 leading-relaxed
                 text-gray-600
                 md:text-lg
+                md:text-justify
+                md:hyphens-auto
               "
             >
 
@@ -448,9 +482,10 @@ export default function RemodelacionesPage() {
 
 
               <p>
-                Podemos integrar muebles a medida dentro del
-                proyecto para lograr un resultado más ordenado,
-                coherente y adaptado al estilo de cada cliente.
+                Podemos integrar mobiliario, instalaciones y
+                otros trabajos dentro del mismo proyecto para
+                facilitar el proceso y conseguir un resultado
+                más coherente y listo para usar.
               </p>
 
             </div>
@@ -495,8 +530,9 @@ export default function RemodelacionesPage() {
         title="Una remodelación pensada para mejorar tu espacio"
 
         description="
-          Cada proyecto parte de las condiciones reales del lugar
-          y de las necesidades de quienes lo utilizan.
+          Cada proyecto parte de las condiciones reales del lugar,
+          del alcance acordado y de las necesidades de quienes
+          utilizarán el espacio.
         "
 
         benefits={benefits}
@@ -513,9 +549,10 @@ export default function RemodelacionesPage() {
         title="Materiales y acabados según cada remodelación"
 
         description="
-          Cada remodelación requiere soluciones diferentes.
-          Seleccionamos materiales, iluminación, mobiliario y
-          acabados de acuerdo con las necesidades del proyecto.
+          Puedes seleccionar los materiales y acabados de tu proyecto
+          o permitirnos gestionar las compras con nuestros proveedores
+          para facilitar el proceso y asegurar que todo esté disponible
+          al momento de la instalación.
         "
 
         materials={remodelingMaterials}
@@ -551,8 +588,9 @@ export default function RemodelacionesPage() {
         title="Preguntas sobre nuestras remodelaciones"
 
         description="
-          Algunas respuestas útiles antes de comenzar
-          la renovación de tu espacio.
+          Conoce más sobre el alcance, planificación,
+          ejecución y garantía de nuestros proyectos
+          de remodelación.
         "
 
         faqs={faqs}

@@ -1,6 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+
 import Link from 'next/link';
 
 import {
@@ -91,6 +96,7 @@ const SocialItem = ({
     className="group flex items-center justify-between"
   >
     <div className="flex items-center gap-4">
+
       <Icon
         size={20}
         className="
@@ -112,6 +118,7 @@ const SocialItem = ({
       >
         {label}
       </span>
+
     </div>
 
     {arrow && (
@@ -165,7 +172,6 @@ const navLinks = [
     name: 'Cotizar',
     href: '/#cotizar',
   },
-  
 ];
 
 
@@ -174,65 +180,207 @@ const navLinks = [
 // ================================
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+
+  const [isOpen, setIsOpen] =
+    useState(false);
+
+  const [scrolled, setScrolled] =
+    useState(false);
+
+  const [isVisible, setIsVisible] =
+    useState(true);
+
+  const lastScrollY =
+    useRef(0);
 
 
-  // DETECTAR SCROLL
+  // ================================
+  // SMART NAVBAR
+  // ================================
+
   useEffect(() => {
+
+    let accumulatedScroll = 0;
+
+    lastScrollY.current =
+      window.scrollY;
+
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+
+      const currentScrollY =
+        window.scrollY;
+
+      const difference =
+        currentScrollY -
+        lastScrollY.current;
+
+
+      // Fondo del navbar después de 80px
+      setScrolled(
+        currentScrollY > 80
+      );
+
+
+      // Cerca del inicio siempre visible
+      if (currentScrollY < 80) {
+
+        setIsVisible(true);
+
+        accumulatedScroll = 0;
+
+        lastScrollY.current =
+          currentScrollY;
+
+        return;
+      }
+
+
+      // Si cambia la dirección,
+      // reiniciamos la distancia acumulada
+      if (
+        (difference > 0 &&
+          accumulatedScroll < 0) ||
+        (difference < 0 &&
+          accumulatedScroll > 0)
+      ) {
+        accumulatedScroll = 0;
+      }
+
+
+      accumulatedScroll += difference;
+
+
+      // ================================
+      // BAJANDO
+      // ================================
+      // Tiene que bajar unos 120px
+      // antes de ocultarse.
+
+      if (accumulatedScroll > 120) {
+
+        setIsVisible(false);
+
+        accumulatedScroll = 0;
+
+      }
+
+
+      // ================================
+      // SUBIENDO
+      // ================================
+      // Con subir unos 20px vuelve.
+
+      if (accumulatedScroll < -20) {
+
+        setIsVisible(true);
+
+        accumulatedScroll = 0;
+
+      }
+
+
+      lastScrollY.current =
+        currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener(
+      'scroll',
+      handleScroll,
+      {
+        passive: true,
+      }
+    );
+
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+
+      window.removeEventListener(
+        'scroll',
+        handleScroll
+      );
+
     };
+
   }, []);
 
 
+  // ================================
   // BLOQUEAR SCROLL CUANDO ABRE MENÚ
+  // ================================
+
   useEffect(() => {
+
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+
+      document.body.style.overflow =
+        'hidden';
+
+      setIsVisible(true);
+
     } else {
-      document.body.style.overflow = 'auto';
+
+      document.body.style.overflow =
+        'auto';
+
     }
 
+
     return () => {
-      document.body.style.overflow = 'auto';
+
+      document.body.style.overflow =
+        'auto';
+
     };
+
   }, [isOpen]);
 
 
   return (
     <>
+
       {/* ================================
           NAVBAR PRINCIPAL
       ================================= */}
 
       <nav
         className={`
-          absolute
+          fixed
+          left-0
+          top-0
           z-50
           w-full
+          py-3
           text-white
-          transition-all
-          duration-500
+
+          transition-[transform,background-color,box-shadow,opacity]
+          duration-[900ms]
+          ease-[cubic-bezier(0.22,1,0.36,1)]
+          will-change-transform
+
+          ${
+            isVisible
+              ? 'translate-y-0 opacity-100'
+              : '-translate-y-full opacity-0'
+          }
+
           ${
             scrolled
-              ? 'bg-black/60 py-1 shadow-lg backdrop-blur-md'
-              : 'bg-black py-3'
+              ? 'bg-black/90 shadow-lg backdrop-blur-md'
+              : 'bg-black'
           }
         `}
       >
+
         <div className="mx-auto max-w-[1584px] px-6 md:px-12">
 
           <div className="flex h-8 items-center justify-between md:h-8">
 
+
             {/* LOGO */}
             <div className="flex-shrink-0">
+
               <Link
                 href="/"
                 className="
@@ -246,6 +394,7 @@ export default function Navbar() {
               >
                 Cocinas Modernas
               </Link>
+
             </div>
 
 
@@ -267,7 +416,9 @@ export default function Navbar() {
                   xl:space-x-10
                 "
               >
+
                 {navLinks.map((link) => (
+
                   <Link
                     key={link.name}
                     href={link.href}
@@ -294,7 +445,9 @@ export default function Navbar() {
                   >
                     {link.name}
                   </Link>
+
                 ))}
+
               </div>
 
             </div>
@@ -307,7 +460,9 @@ export default function Navbar() {
             <div className="flex items-center lg:hidden">
 
               <button
-                onClick={() => setIsOpen(true)}
+                onClick={() =>
+                  setIsOpen(true)
+                }
                 aria-label="Abrir menú"
                 className="
                   p-2
@@ -317,6 +472,7 @@ export default function Navbar() {
                   hover:text-orange-400
                 "
               >
+
                 <svg
                   className="h-7 w-7"
                   fill="none"
@@ -330,12 +486,15 @@ export default function Navbar() {
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
+
               </button>
 
             </div>
 
           </div>
+
         </div>
+
       </nav>
 
 
@@ -344,7 +503,9 @@ export default function Navbar() {
       ================================= */}
 
       {isOpen && (
+
         <div className="fixed inset-0 z-[100] flex justify-end">
+
 
           {/* OVERLAY */}
           <div
@@ -354,7 +515,9 @@ export default function Navbar() {
               bg-black/50
               backdrop-blur-sm
             "
-            onClick={() => setIsOpen(false)}
+            onClick={() =>
+              setIsOpen(false)
+            }
           />
 
 
@@ -381,11 +544,14 @@ export default function Navbar() {
             "
           >
 
+
             {/* CERRAR */}
             <div className="mb-12 flex justify-end">
 
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={() =>
+                  setIsOpen(false)
+                }
                 aria-label="Cerrar menú"
                 className="
                   transition-transform
@@ -409,49 +575,63 @@ export default function Navbar() {
                 icon={Home}
                 label="Inicio"
                 href="/"
-                onClick={() => setIsOpen(false)}
+                onClick={() =>
+                  setIsOpen(false)
+                }
               />
 
               <NavItem
                 icon={Images}
                 label="Galería"
                 href="/galeria"
-                onClick={() => setIsOpen(false)}
+                onClick={() =>
+                  setIsOpen(false)
+                }
               />
 
               <NavItem
                 icon={LayoutGrid}
                 label="Cocinas"
                 href="/cocinas"
-                onClick={() => setIsOpen(false)}
+                onClick={() =>
+                  setIsOpen(false)
+                }
               />
 
               <NavItem
                 icon={DoorOpen}
                 label="Clósets"
                 href="/closets"
-                onClick={() => setIsOpen(false)}
+                onClick={() =>
+                  setIsOpen(false)
+                }
               />
 
               <NavItem
                 icon={Monitor}
                 label="Centros de TV"
                 href="/centros-de-tv"
-                onClick={() => setIsOpen(false)}
+                onClick={() =>
+                  setIsOpen(false)
+                }
               />
 
               <NavItem
                 icon={PaintRoller}
                 label="Remodelaciones"
                 href="/remodelaciones"
-                onClick={() => setIsOpen(false)}
+                onClick={() =>
+                  setIsOpen(false)
+                }
               />
 
               <NavItem
-              icon={Mail}
-              label="Cotizar"
-              href="/#cotizar"
-              onClick={() => setIsOpen(false)}
+                icon={Mail}
+                label="Cotizar"
+                href="/#cotizar"
+                onClick={() =>
+                  setIsOpen(false)
+                }
               />
 
 
@@ -515,8 +695,11 @@ export default function Navbar() {
             </div>
 
           </div>
+
         </div>
+
       )}
+
     </>
   );
 }
