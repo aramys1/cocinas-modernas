@@ -1,84 +1,35 @@
-import type { Metadata } from 'next';
+import { pageMetadata, serviceSchema } from '@/lib/seo';
+import { serviceProjects } from '@/data/projects';
+import JsonLd from '@/components/JsonLd';
 
-import {
-  Layers,
-  Wrench,
-  Lightbulb,
-  Boxes,
-} from 'lucide-react';
+import { Layers, Wrench, Lightbulb, Boxes } from 'lucide-react';
 
 import ServiceHero from '@/components/ServiceHero';
 
-import ServiceProjects, {
-  type ServiceProject,
-} from '@/components/ServiceProjects';
+import ServiceProjects from '@/components/ServiceProjects';
 
 import ServiceBenefits from '@/components/ServiceBenefits';
 
-import ServiceFAQ, {
-  type FAQItem,
-} from '@/components/ServiceFAQ';
+import ServiceFAQ, { type FAQItem } from '@/components/ServiceFAQ';
 
-import Materials, {
-  type MaterialItem,
-} from '@/components/Materials';
+import Materials, { type MaterialItem } from '@/components/Materials';
 
 import Process from '@/components/Process';
 import Cotizar from '@/components/Cotizar';
-import Footer from '@/components/Footer';
 import Reveal from '@/components/Reveal';
 
-
-export const metadata: Metadata = {
-  title: 'Clósets a Medida en Panamá',
-
-  description:
-    'Diseño, fabricación e instalación de clósets a medida en Panamá. Creamos soluciones modernas y funcionales para aprovechar mejor cada espacio.',
-
-  openGraph: {
-    title:
-      'Clósets a Medida en Panamá | Cocinas Modernas',
-
-    description:
-      'Diseñamos y fabricamos clósets personalizados en Panamá, adaptados al espacio, almacenamiento y estilo de cada cliente.',
-
-    type: 'website',
-  },
-};
-
+export const metadata = pageMetadata(
+  'Clósets a Medida en Panamá',
+  'Diseño, fabricación e instalación de clósets a medida en Panamá. Creamos soluciones modernas y funcionales para aprovechar mejor cada espacio.',
+  '/closets',
+  '/closet.png',
+);
 
 /* =================================
    PROYECTOS
 ================================= */
 
-const closetProjects: ServiceProject[] = [
-  {
-    id: 1,
-
-    title: 'Clóset a medida',
-
-    category: 'Closets',
-
-    image: '/closet.png',
-
-    alt:
-      'Clóset blanco fabricado a medida con almacenamiento personalizado en Panamá',
-  },
-
-  {
-    id: 2,
-
-    title: 'Clóset moderno',
-
-    category: 'Closets',
-
-    image: '/galeria-closet.png',
-
-    alt:
-      'Clóset moderno de madera clara diseñado y fabricado a medida en Panamá',
-  },
-];
-
+const closetProjects = serviceProjects('closets');
 
 /* =================================
    BENEFICIOS
@@ -86,30 +37,26 @@ const closetProjects: ServiceProject[] = [
 
 const benefits = [
   {
-    title:
-      'Aprovechamiento del espacio',
+    title: 'Aprovechamiento del espacio',
 
     description:
       'Diseñamos cada clóset según las dimensiones disponibles para aprovechar mejor paredes, esquinas y áreas de almacenamiento.',
   },
 
   {
-    title:
-      'Distribución personalizada',
+    title: 'Distribución personalizada',
 
     description:
       'Podemos organizar espacios para ropa, gavetas, repisas y diferentes tipos de almacenamiento según tus necesidades.',
   },
 
   {
-    title:
-      'Diseño integrado al ambiente',
+    title: 'Diseño integrado al ambiente',
 
     description:
       'Seleccionamos colores, acabados y distribución para que el clóset se integre naturalmente con el dormitorio o espacio donde será instalado.',
   },
 ];
-
 
 /* =================================
    MATERIALES Y ACABADOS
@@ -117,74 +64,57 @@ const benefits = [
 
 const closetMaterials: MaterialItem[] = [
   {
-    title:
-      'Tableros y acabados',
+    title: 'Tableros y acabados',
 
     description:
       'Materiales seleccionados para crear estructuras resistentes, superficies uniformes y acabados modernos.',
 
-    image:
-      '/aglomerado-hidrofugo.png',
+    image: '/aglomerado-hidrofugo.png',
 
-    alt:
-      'Tableros para fabricación de clósets a medida en Panamá',
+    alt: 'Tableros para fabricación de clósets a medida en Panamá',
 
-    icon:
-      Layers,
+    icon: Layers,
   },
 
   {
-    title:
-      'Herrajes y correderas',
+    title: 'Herrajes y correderas',
 
     description:
       'Bisagras, correderas y accesorios que permiten un funcionamiento cómodo y duradero.',
 
-    image:
-      '/herraje.png',
+    image: '/herraje.png',
 
-    alt:
-      'Herrajes y correderas para clósets fabricados a medida',
+    alt: 'Herrajes y correderas para clósets fabricados a medida',
 
-    icon:
-      Wrench,
+    icon: Wrench,
   },
 
   {
-    title:
-      'Iluminación LED',
+    title: 'Iluminación LED',
 
     description:
       'Podemos integrar iluminación para mejorar la visibilidad interior y aportar un acabado moderno.',
 
-    image:
-      '/luces-led.png',
+    image: '/luces-led.png',
 
-    alt:
-      'Iluminación LED integrada en clóset moderno a medida',
+    alt: 'Iluminación LED integrada en clóset moderno a medida',
 
-    icon:
-      Lightbulb,
+    icon: Lightbulb,
   },
 
   {
-    title:
-      'Distribución interior',
+    title: 'Distribución interior',
 
     description:
       'Repisas, gavetas y espacios para colgar diseñados según tus necesidades de almacenamiento.',
 
-    image:
-      '/espacios-funcionales.png',
+    image: '/espacios-funcionales.png',
 
-    alt:
-      'Distribución interior personalizada de clóset a medida',
+    alt: 'Distribución interior personalizada de clóset a medida',
 
-    icon:
-      Boxes,
+    icon: Boxes,
   },
 ];
-
 
 /* =================================
    PREGUNTAS FRECUENTES
@@ -192,32 +122,28 @@ const closetMaterials: MaterialItem[] = [
 
 const faqs: FAQItem[] = [
   {
-    question:
-      '¿Qué tipos de clósets fabrican?',
+    question: '¿Qué tipos de clósets fabrican?',
 
     answer:
       'Fabricamos clósets empotrados, abiertos, walk-in closets, vestidores y otras soluciones de almacenamiento a medida. Podemos proponer un diseño desde cero o trabajar a partir de una idea o referencia del cliente, siempre considerando las posibilidades reales del espacio.',
   },
 
   {
-    question:
-      '¿Puedo decidir completamente la distribución interior?',
+    question: '¿Puedo decidir completamente la distribución interior?',
 
     answer:
       'Sí. La distribución puede personalizarse con gavetas, repisas, áreas para colgar ropa, zapateras, maleteros y otros espacios según tus necesidades. También podemos proponer ajustes que ayuden a aprovechar mejor el clóset o a optimizar el costo del proyecto.',
   },
 
   {
-    question:
-      '¿Qué tipos de puertas, colores y acabados puedo elegir?',
+    question: '¿Qué tipos de puertas, colores y acabados puedo elegir?',
 
     answer:
       'Podemos trabajar puertas corredizas o abatibles, además de diferentes colores, texturas, tiradores, herrajes y acabados. El cliente puede personalizar estos elementos de acuerdo con el estilo que desea y las condiciones del espacio.',
   },
 
   {
-    question:
-      '¿Pueden integrar iluminación LED en el clóset?',
+    question: '¿Pueden integrar iluminación LED en el clóset?',
 
     answer:
       'Sí. Podemos incorporar iluminación LED en diferentes áreas del clóset según el diseño y las preferencias del cliente, integrándola desde la planificación del proyecto.',
@@ -232,24 +158,21 @@ const faqs: FAQItem[] = [
   },
 
   {
-    question:
-      '¿Puedo ver un diseño o render antes de fabricar el clóset?',
+    question: '¿Puedo ver un diseño o render antes de fabricar el clóset?',
 
     answer:
       'Sí. Podemos preparar diseños o renders para ayudar a visualizar la distribución, proporciones y apariencia del clóset. El cliente también puede presentar sus propias ideas o referencias para desarrollar el diseño.',
   },
 
   {
-    question:
-      '¿Pueden retirar un clóset existente e instalar el nuevo?',
+    question: '¿Pueden retirar un clóset existente e instalar el nuevo?',
 
     answer:
       'Sí. Si el espacio ya tiene un clóset, podemos contemplar su desmontaje y reemplazo como parte del proyecto. También podemos coordinar otros trabajos necesarios si se desea realizar una remodelación más completa del área.',
   },
 
   {
-    question:
-      '¿Cuánto demora la instalación y qué garantía ofrecen?',
+    question: '¿Cuánto demora la instalación y qué garantía ofrecen?',
 
     answer:
       'La instalación de un clóset residencial suele completarse en un día cuando el espacio está preparado y el proyecto se mantiene según lo acordado. Ofrecemos 3 meses de garantía por defectos relacionados con la instalación. La garantía no cubre daños ocasionados por mal uso, productos de limpieza inadecuados, sustancias abrasivas u otras causas ajenas a la instalación.',
@@ -264,82 +187,25 @@ const faqs: FAQItem[] = [
   },
 ];
 
-
 export default function ClosetsPage() {
-
   /* =================================
      DATOS ESTRUCTURADOS SEO
   ================================= */
 
-  const structuredData = {
-    '@context': 'https://schema.org',
-
-    '@graph': [
-      {
-        '@type': 'Service',
-
-        name:
-          'Diseño y fabricación de clósets a medida en Panamá',
-
-        serviceType:
-          'Diseño y fabricación de clósets a medida',
-
-        description:
-          'Diseño, fabricación e instalación de clósets personalizados y muebles de almacenamiento a medida en Panamá.',
-
-        areaServed: {
-          '@type': 'Country',
-          name: 'Panamá',
-        },
-
-        provider: {
-          '@type': 'Organization',
-
-          name:
-            'Cocinas Modernas',
-
-          telephone:
-            '+507 6841-4434',
-        },
-      },
-
-      {
-        '@type': 'FAQPage',
-
-        mainEntity: faqs.map((faq) => ({
-          '@type': 'Question',
-
-          name:
-            faq.question,
-
-          acceptedAnswer: {
-            '@type': 'Answer',
-
-            text:
-              faq.answer,
-          },
-        })),
-      },
-    ],
-  };
-
+  const structuredData = serviceSchema(
+    'Clósets a Medida en Panamá',
+    'Diseño, fabricación e instalación de clósets a medida en Panamá. Creamos soluciones modernas y funcionales para aprovechar mejor cada espacio.',
+    '/closets',
+    faqs,
+  );
 
   return (
-    <main className="bg-white">
-
+    <main id="contenido" tabIndex={-1} className="bg-white">
       {/* =================================
           DATOS PARA GOOGLE
       ================================= */}
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            structuredData
-          ).replace(/</g, '\\u003c'),
-        }}
-      />
-
+      <JsonLd data={structuredData} />
 
       {/* =================================
           HERO
@@ -372,129 +238,55 @@ export default function ClosetsPage() {
         projectsHref="#proyectos"
       />
 
-
       {/* =================================
           INTRODUCCIÓN
       ================================= */}
 
       <section className="bg-white py-20 md:py-24">
-
-        <div
-          className="
-            mx-auto
-            grid
-            max-w-[1584px]
-            grid-cols-1
-            gap-10
-            px-6
-            md:px-16
-            lg:grid-cols-2
-            lg:gap-20
-            lg:px-24
-          "
-        >
-
+        <div className="mx-auto grid max-w-[1584px] grid-cols-1 gap-10 px-6 md:px-12 lg:grid-cols-2 lg:gap-20 lg:px-12">
           {/* IZQUIERDA */}
           <Reveal>
-
             <div>
-
-              <p
-                className="
-                  mb-4
-                  text-sm
-                  font-semibold
-                  uppercase
-                  tracking-[0.25em]
-                  text-[#B9945E]
-                "
-              >
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#816037]">
                 Almacenamiento personalizado
               </p>
 
-
               <h2
-                className="
-                  max-w-xl
-                  text-3xl
-                  font-semibold
-                  leading-tight
-                  text-black
-                  md:text-5xl
-                "
+                className="max-w-xl text-black section-title"
                 style={{
-                  fontFamily:
-                    'var(--font-display)',
+                  fontFamily: 'var(--font-display)',
                 }}
               >
                 Un clóset pensado para tu espacio
               </h2>
 
-
-              <div
-                className="
-                  mt-6
-                  h-[2px]
-                  w-20
-                  bg-[#D9B37A]
-                "
-              />
-
+              <div className="mt-6 h-[2px] w-20 bg-[#D9B37A]" />
             </div>
-
           </Reveal>
 
-
           {/* DERECHA */}
-          <Reveal
-            delay={180}
-            direction="right"
-          >
-
-            <div
-              className="
-                flex
-                h-full
-                flex-col
-                justify-center
-                gap-5
-                text-base
-                leading-relaxed
-                text-gray-600
-                md:text-lg
-              "
-            >
-
+          <Reveal delay={180} direction="right">
+            <div className="flex h-full flex-col justify-center gap-5 text-base leading-relaxed text-gray-600 md:text-lg">
               <p>
-                Un clóset a medida permite utilizar mejor
-                el espacio disponible y organizar cada
-                área según las necesidades de quien lo usa.
+                Un clóset a medida permite utilizar mejor el espacio disponible
+                y organizar cada área según las necesidades de quien lo usa.
               </p>
 
-
               <p>
-                Diseñamos distribuciones con espacios para
-                ropa, gavetas, repisas y almacenamiento,
-                buscando que cada elemento tenga una
+                Diseñamos distribuciones con espacios para ropa, gavetas,
+                repisas y almacenamiento, buscando que cada elemento tenga una
                 función clara.
               </p>
 
-
               <p>
-                El resultado es un mueble integrado al
-                ambiente, con dimensiones, colores y
-                acabados adaptados al estilo de cada
+                El resultado es un mueble integrado al ambiente, con
+                dimensiones, colores y acabados adaptados al estilo de cada
                 habitación.
               </p>
-
             </div>
-
           </Reveal>
-
         </div>
-
       </section>
-
 
       {/* =================================
           PROYECTOS
@@ -513,11 +305,10 @@ export default function ClosetsPage() {
 
         projects={closetProjects}
 
-        galleryHref="/galeria?categoria=Closets"
+        galleryHref="/galeria?categoria=closets"
 
         galleryLabel="Ver más proyectos de clósets"
       />
-
 
       {/* =================================
           BENEFICIOS
@@ -537,7 +328,6 @@ export default function ClosetsPage() {
         benefits={benefits}
       />
 
-
       {/* =================================
           MATERIALES Y ACABADOS
       ================================= */}
@@ -555,7 +345,6 @@ export default function ClosetsPage() {
 
         materials={closetMaterials}
       />
-
 
       {/* =================================
           PROCESO
@@ -575,7 +364,6 @@ export default function ClosetsPage() {
         ctaLabel="Cotizar mi clóset"
       />
 
-
       {/* =================================
           PREGUNTAS FRECUENTES
       ================================= */}
@@ -594,20 +382,11 @@ export default function ClosetsPage() {
         faqs={faqs}
       />
 
-
       {/* =================================
           COTIZACIÓN
       ================================= */}
 
       <Cotizar />
-
-
-      {/* =================================
-          FOOTER
-      ================================= */}
-
-      <Footer />
-
     </main>
   );
 }
