@@ -1,11 +1,6 @@
-'use client';
+﻿'use client';
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type ReactNode,
-} from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 
 type RevealProps = {
   children: ReactNode;
@@ -20,63 +15,60 @@ export default function Reveal({
   direction = 'up',
   className = '',
 }: RevealProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const element = ref.current;
-
-    if (!element) return;
-
+    if (!element || !('IntersectionObserver' in window)) return;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // Server HTML and first-screen content remain visible without waiting for JS.
+    if (
+      media.matches ||
+      element.getBoundingClientRect().top < window.innerHeight
+    )
+      return;
+    let animation: Animation | undefined;
+    const transform =
+      direction === 'left'
+        ? 'translateX(-12px)'
+        : direction === 'right'
+          ? 'translateX(12px)'
+          : 'translateY(16px)';
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        if (!media.matches)
+          animation = element.animate(
+            [
+              { opacity: 0, transform },
+              { opacity: 1, transform: 'none' },
+            ],
+            {
+              duration: 450,
+              delay: Math.min(delay, 120),
+              easing: 'ease-out',
+              fill: 'backwards',
+            },
+          );
+        observer.disconnect();
       },
-      {
-        threshold: 0.15,
-      }
+      { threshold: 0.05 },
     );
-
     observer.observe(element);
-
-    return () => {
-      observer.disconnect();
+    const onMotionChange = () => {
+      if (media.matches) {
+        animation?.cancel();
+        observer.disconnect();
+      }
     };
-  }, []);
-
-  const hiddenTransform =
-    direction === 'left'
-      ? '-translate-x-6'
-      : direction === 'right'
-      ? 'translate-x-6'
-      : 'translate-y-6';
-
+    media.addEventListener('change', onMotionChange);
+    return () => {
+      animation?.cancel();
+      observer.disconnect();
+      media.removeEventListener('change', onMotionChange);
+    };
+  }, [delay, direction]);
   return (
-    <div
-      ref={ref}
-      style={{
-        transitionDelay: `${delay}ms`,
-      }}
-      className={`
-        transition-all
-        duration-1000
-        ease-out
-        motion-reduce:transition-none
-        motion-reduce:transform-none
-        motion-reduce:opacity-100
-
-        ${
-          isVisible
-            ? 'opacity-100 translate-x-0 translate-y-0'
-            : `opacity-0 ${hiddenTransform}`
-        }
-
-        ${className}
-      `}
-    >
+    <div ref={ref} className={`reveal ${className}`}>
       {children}
     </div>
   );

@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import { pageMetadata } from '@/lib/seo';
+import { siteConfig } from '@/lib/site-config';
 import Link from 'next/link';
 
 import Benefits from '@/components/Benefits';
@@ -6,22 +9,27 @@ import Galeria from '@/components/Galeria';
 import Materials from '@/components/Materials';
 import PreguntasFrecuentes from '@/components/PreguntasFrecuentes';
 import Cotizar from '@/components/Cotizar';
-import Footer from '@/components/Footer';
 import Reveal from '@/components/Reveal';
+
+export const metadata = pageMetadata(
+  'Muebles a medida en Panamá',
+  'Diseño, fabricación e instalación de cocinas, clósets, muebles de TV y mobiliario a medida. Panamá Oeste, con servicio en todo Panamá.',
+  '/',
+);
 
 export default function Home() {
   return (
-    <main>
-
+    <main id="contenido" tabIndex={-1}>
       {/* HERO */}
-      <section className="relative min-h-screen overflow-hidden">
-
+      <section className="relative min-h-[100svh] overflow-hidden">
         {/* IMAGEN DE FONDO */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/cocina-gris-hero.png')",
-          }}
+        <Image
+          src="/cocina-gris-hero.png"
+          alt="Cocina gris con mobiliario a medida"
+          fill
+          preload
+          sizes="100vw"
+          className="object-cover object-center"
         />
 
         {/* DEGRADADO DE IZQUIERDA A DERECHA */}
@@ -33,43 +41,27 @@ export default function Home() {
           }}
         />
 
+        <div
+          className="absolute inset-0 bg-black/25 sm:bg-transparent"
+          aria-hidden="true"
+        />
+
         {/* CONTENIDO DEL HERO */}
-        <div className="relative z-10 flex min-h-screen items-center">
-
+        <div className="relative z-10 flex min-h-[100svh] items-center py-28">
           <div className="mx-auto w-full max-w-[1584px] px-6 md:px-12">
-
             <div className="max-w-3xl">
-
               {/* TÍTULO */}
               <Reveal delay={100}>
-                <h1
-                  className="
-                    max-w-3xl
-                    font-serif
-                    text-5xl
-                    font-semibold
-                    leading-[1.05]
-                    tracking-tight
-                    text-white
-                    sm:text-5xl
-                    md:text-5xl
-                    lg:text-6xl
-                  "
-                >
+                <h1 className="max-w-3xl font-serif tracking-tight text-white page-title">
                   Diseño y Fabricación
-
-                  <span className="block">
-                    de Muebles a Medida
-                  </span>
+                  <span className="block">de Muebles a Medida en Panamá</span>
                 </h1>
               </Reveal>
-
 
               {/* LÍNEA DECORATIVA */}
               <Reveal delay={250}>
                 <div className="mb-8 mt-8 h-[3px] w-20 bg-white" />
               </Reveal>
-
 
               {/* TEXTO */}
               <Reveal delay={400}>
@@ -79,47 +71,23 @@ export default function Home() {
                 </p>
               </Reveal>
 
-
               {/* BOTÓN */}
               <Reveal delay={550}>
                 <div className="mt-10">
-
                   <Link
-                    href="https://wa.me/50768414434"
+                    href={siteConfig.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
-                      inline-flex
-                      items-center
-                      justify-center
-                      rounded-xl
-                      bg-white
-                      px-8
-                      py-4
-                      text-base
-                      font-semibold
-                      text-black
-                      transition-all
-                      duration-300
-                      hover:scale-[1.02]
-                      hover:bg-neutral-200
-                      md:text-lg
-                    "
+                    className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-black transition-all duration-300 hover:scale-[1.02] hover:bg-neutral-200 md:text-lg"
                   >
                     Cotizar mi proyecto
                   </Link>
-
                 </div>
               </Reveal>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* SECCIONES */}
       <Galeria />
@@ -128,8 +96,6 @@ export default function Home() {
       <Materials />
       <PreguntasFrecuentes />
       <Cotizar />
-      <Footer />
-
     </main>
   );
 }
